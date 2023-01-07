@@ -25,8 +25,8 @@ public class PacMan {
    * Method by adhetzer
   */ 
   public ArrayList<Location> get_valid_moves() {
-    currentLoc = self.myLoc
-    ArrayList<Location> validMoves = null
+    currentLoc = self.myLoc;
+    ArrayList<Location> validMoves = null;
 
     // There are eight locations surrounding PacMan's current location
     // So, we will check if any of these locations are a Map.Type.WALL.
@@ -39,7 +39,7 @@ public class PacMan {
 
         // The only non-valid move for PacMan is going through a WALL
         if (map.getLocation(testLocation) != Map.Type.WALL) {
-          validMoves.add(testLocation)
+          validMoves.add(testLocation);
         }
       }
     }
