@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import javax.swing.JComponent;
+import java.util.Random;
 
 public class PacMan {
   String myName;
