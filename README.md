@@ -5,9 +5,11 @@
 ## Image of playing PacMan
 
 ## How to run the code from the command line
-cd {path_to_P1} 
-javac -cp "src/" src/*.java 
+```bash
+cd {path_to_P1}
+javac -cp "src/" src/*.java
 java -cp "src/" StartMenu
+```
 
 ## Functions with implementation and testing
 ### PacMan Class
@@ -36,7 +38,7 @@ JUnit Test:
 Author: Uyen Nguyen
 Method Summary: (Location loc) -> HashSet<Type>
 This method returns the type of object (Empty, Pacman, Cookie, Ghost, Wall) at a given location.
-JUnit Test:
+Testing: To test this method, create a map, and a Pacman at location (2, 4). Then use assertTrue to to check if getLoc returns a HashSet contains a PacMan at that location.
 ####
 ####
 
