@@ -18,9 +18,7 @@ java -cp "src/" StartMenu
 - **Author:** Uyen Nguyen
 - **Method Summary:** `() -> Bool`
 This method implements PacMan's movements. First, it finds a set of locations where PacMan can move by using get_valid_moves. Then, it randomly chooses one of those locations, implements the move, and returns true. Otherwise, the set of location is empty, and the method returns false because PacMan cannot move.
-
-
-JUnit Test:
+- **Testing:** Create a new map. Create a Pacman at location (1, 3). Add the pacman to map at the same location. Use getLoc to check if Pacman is at (1, 3). Let it move. Use getLoc to check location (1, 3) to see whether Pacman is still there.
 ####
 ####
 ### Ghost Class
@@ -29,7 +27,7 @@ JUnit Test:
 - **Author:** Uyen Nguyen
 - **Method Summary:** `() -> Bool`
 This method implements Ghost's movements. First, it finds a set of locations where Ghost can move by using get_valid_moves. Then, it randomly chooses one of those locations, implements the move, and returns true. Otherwise, the set of location is empty, and the method returns false because Ghost cannot move.
-JUnit Test:
+- **Testing:** Create a new map. Create a ghost at location (1, 3). Add the ghost to map at the same location. Use getLoc to check if ghost is at (1, 3). Let it move. Use getLoc to check location (1, 3) to see whether ghost is still there.
 ####
 ####
 ### Map Class
