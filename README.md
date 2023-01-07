@@ -5,7 +5,7 @@
 ## Image of playing PacMan
 
 ## How to run the code from the command line
-cd {path_to_P1}
+cd {path_to_P1} 
 javac -cp "src/" src/*.java 
 java -cp "src/" StartMenu
 
