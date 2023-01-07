@@ -2,17 +2,17 @@
 # PACMAN by Team 3
 ## Aaron Hetzer, Uyen Nguyen, Dan Xu, Syed Zaidi
 
-### Image of playing PacMan
+### 1. Image of playing PacMan
 
-### How to run the code from the command line
+### 2. How to run the code from the command line
 ```bash
 cd {path_to_P1}
 javac -cp "src/" src/*.java
 java -cp "src/" StartMenu
 ```
 
-### Functions with implementation and testing
-#### PacMan Class
+### 3. Functions with implementation and testing
+#### 3.1 PacMan Class
 #####
 ##### move():
 - **Author:** Uyen Nguyen
@@ -21,7 +21,7 @@ This method implements PacMan's movements. First, it finds a set of locations wh
 - **Testing:** Create a new map. Create a Pacman at location (1, 3). Add the pacman to map at the same location. Use getLoc to check if Pacman is at (1, 3). Let it move. Use getLoc to check location (1, 3) to see whether Pacman is still there.
 #####
 #####
-#### Ghost Class
+#### 3.2 Ghost Class
 #####
 ##### move():
 - **Author:** Uyen Nguyen
@@ -30,7 +30,7 @@ This method implements Ghost's movements. First, it finds a set of locations whe
 - **Testing:** Create a new map. Create a ghost at location (1, 3). Add the ghost to map at the same location. Use getLoc to check if ghost is at (1, 3). Let it move. Use getLoc to check location (1, 3) to see whether ghost is still there.
 #####
 #####
-#### Map Class
+#### 3.3 Map Class
 #####
 ##### getLoc:
 - **Author:** Uyen Nguyen
