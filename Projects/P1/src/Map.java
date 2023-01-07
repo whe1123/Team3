@@ -58,37 +58,52 @@ public class Map {
    * If the method is able to succesfully move the object, it returns True.
    * Otherwise, the method returns false.
    * 
+   * The method requires the object specified by the name to already exist
+   * to return true.
+   * 
    * Method written by adhetzer
    */
   public boolean move(String name, Location loc, Type type) {
-    // Update locations, and field
-    locations.put(name, loc)
-    field.put(loc, type)
+    // Check if the object to be moved exists in components. If not
+    // return false. Otherwise continue to move.
+    if (components.containsKey(name) && type != Map.Type.Empty){
+      // Updates field. We will assume that loc already exists in field
+      // for a valid move. This is because we can't move to a non-existant
+      // location.
+      if (field.containsKey(loc)) {
+        field.put(loc, type);
+      } else { 
+        // Returns false if loc doesn't already exist in field
+        return false;
+      }
 
-    // Update components depending on type.
-    // Use the setLocation method for the respective component 
-    // to move it to the new location
-    if (type == Map.Type.PACMAN) {
-      components.put(name, new PacManComponent(loc.x, loc.y, 1)) // Should scale be 1?
-      PacManComponent.setLocation(loc.x, loc.y) 
+      // Update locations, and components
+      locations.put(name, loc);
+      components.put(name, components.get(name)); // Seems redundant?
 
-      return True
-    } else if (type == Map.Type.GHOST) {
-      components.put(name, new GhostComponent(loc.x, loc.y, Color.red, 1)) // Should scale be 1?
-      GhostComponent.setLocation(loc.x, loc.y) 
-
-      return True
-    } else if (type == Map.Type.WALL) {
-      components.put(name, new WallComponent(loc.x, loc.y, 1)) // Should scale be 1?
-      WallComponent.setLocation(loc.x, loc.y) 
-
-      return True
-    } else if (type == Map.Type.COOKIE) {
-      components.put(name, new CookieComponent(loc.x, loc.y, 1)) // Should scale be 1?
-      CookieComponent.setLocation(loc.x, loc.y) 
-
-      return True
+      // Update components depending on type.
+      // Use the setLocation method for the respective component 
+      // to move it to the new location. Returns true
+      if (type == Map.Type.PACMAN) {
+        PacManComponent.setLocation(loc.x, loc.y)
+        return true;
+      } else if (type == Map.Type.GHOST) {
+        GhostComponent.setLocation(loc.x, loc.y);
+        return true;
+      } else if (type == Map.Type.WALL) {
+        WallComponent.setLocation(loc.x, loc.y); 
+        return true;
+      } else if (type == Map.Type.COOKIE) {
+        CookieComponent.setLocation(loc.x, loc.y);
+        return true;
+      } else {
+        // Returns false for invalid Map.Types
+        return false;
+      }
     } else {
+      // Returns false for trying to move objects with names
+      // that do not match existing names (should use add instead)
+      // OR for trying to move Map.Type.Empty objects.
       return false;
     }
   }
