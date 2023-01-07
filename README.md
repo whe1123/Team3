@@ -38,7 +38,7 @@ JUnit Test:
 - **Author:** Uyen Nguyen
 - **Method Summary:** (Location loc) -> HashSet<Type>
 This method returns the type of object (Empty, Pacman, Cookie, Ghost, Wall) at a given location.
-Testing: To test this method, create a map, and a Pacman at location (2, 4). Then use assertTrue to to check if getLoc returns a HashSet contains a PacMan at that location.
+- **Testing:** To test this method, create a map, and a Pacman at location (2, 4). Then use assertTrue to to check if getLoc returns a HashSet contains a PacMan at that location.
 ####
 ####
 
