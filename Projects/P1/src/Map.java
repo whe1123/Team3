@@ -51,10 +51,46 @@ public class Map {
     return gameOver;
   }
 
+  /**
+   * This method takes a name, location, and Map.Type and puts the object
+   * specified by the name at the location specified.
+   * 
+   * If the method is able to succesfully move the object, it returns True.
+   * Otherwise, the method returns false.
+   * 
+   * Method written by adhetzer
+   */
   public boolean move(String name, Location loc, Type type) {
-    // update locations, components, and field
-    // use the setLocation method for the component to move it to the new location
-    return false;
+    // Update locations, and field
+    locations.put(name, loc)
+    field.put(loc, type)
+
+    // Update components depending on type.
+    // Use the setLocation method for the respective component 
+    // to move it to the new location
+    if (type == Map.Type.PACMAN) {
+      components.put(name, new PacManComponent(loc.x, loc.y, 1)) // Should scale be 1?
+      PacManComponent.setLocation(loc.x, loc.y) 
+
+      return True
+    } else if (type == Map.Type.GHOST) {
+      components.put(name, new GhostComponent(loc.x, loc.y, Color.red, 1)) // Should scale be 1?
+      GhostComponent.setLocation(loc.x, loc.y) 
+
+      return True
+    } else if (type == Map.Type.WALL) {
+      components.put(name, new WallComponent(loc.x, loc.y, 1)) // Should scale be 1?
+      WallComponent.setLocation(loc.x, loc.y) 
+
+      return True
+    } else if (type == Map.Type.COOKIE) {
+      components.put(name, new CookieComponent(loc.x, loc.y, 1)) // Should scale be 1?
+      CookieComponent.setLocation(loc.x, loc.y) 
+
+      return True
+    } else {
+      return false;
+    }
   }
 
   public HashSet<Type> getLoc(Location loc) {
