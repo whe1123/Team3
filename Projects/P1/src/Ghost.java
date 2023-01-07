@@ -37,7 +37,7 @@ public class Ghost {
         testLocation = currentLoc.shift(currentLoc + x, currentLoc + y)
 
         // The only non-valid move for a Ghost is going through a WALL
-        if (map.getLocation(testLocation) != Map.Type.WALL) {
+        if (map.getLoc(testLocation) != Map.Type.WALL) {
           validMoves.add(testLocation)
         }
       }
