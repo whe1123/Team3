@@ -20,6 +20,8 @@ public class PacMan {
    * It is valid for PacMan to move into a Cookie, Ghost, or Empty. 
    * It is not valid for PacMan to move into a Wall.
    * 
+   * Note: The logic of this method is similar to Ghosts.get_valid_moves()
+   * 
    * Method by adhetzer
   */ 
   public ArrayList<Location> get_valid_moves() {
