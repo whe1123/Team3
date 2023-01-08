@@ -84,7 +84,7 @@ public class Map {
       // Update JComponent depending on type using setLocation(...)
       // to move it to the new location. Returns true
       if (type == Map.Type.PACMAN) {
-        PacManComponent.setLocation(loc.x, loc.y)
+        PacManComponent.setLocation(loc.x, loc.y);
         return true;
       } else if (type == Map.Type.GHOST) {
         GhostComponent.setLocation(loc.x, loc.y);
