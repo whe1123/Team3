@@ -81,8 +81,7 @@ public class Map {
       locations.put(name, loc);
       components.put(name, components.get(name)); // Seems redundant?
 
-      // Update components depending on type.
-      // Use the setLocation method for the respective component 
+      // Update JComponent depending on type using setLocation(...)
       // to move it to the new location. Returns true
       if (type == Map.Type.PACMAN) {
         PacManComponent.setLocation(loc.x, loc.y)
@@ -97,7 +96,7 @@ public class Map {
         CookieComponent.setLocation(loc.x, loc.y);
         return true;
       } else {
-        // Returns false for invalid Map.Types
+        // Returns false for invalid Map.Types and Map.Type.Empty
         return false;
       }
     } else {
