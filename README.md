@@ -18,7 +18,7 @@ java -cp "src/" StartMenu
 - **Author:** Dan Xu
 - **Method Summary:** `() -> Bool`
 This method checks to see if there are any ghosts within attack range of PacMan. A ghost is considered in attack range if it is within 1 space of Pacman's position.
-- **Testing:** Creates a new map. Creates two PacMans and a new Ghost and adds these  characters to the map. The is_ghost_in_range() function is called on the Pacman objects to see if the ghost is within attacking range.
+- **Testing:** Creates a new map. Creates two PacMans and a new Ghost and adds these characters to the map. The is_ghost_in_range() function is called on the Pacman objects to see if the ghost is within attacking range.
 
 ##### move():
 - **Author:** Uyen Nguyen
@@ -44,6 +44,13 @@ This method implements Ghost's movements. First, it finds a set of locations whe
 #####
 #### 3.3 Map Class
 #####
+##### attack():
+- **Author:** Dan Xu
+- **Method Summary:** `() -> Bool`
+This method checks to see if the provided ghost is able to attack PacMan.
+- **Testing:** Creates a new map. Creates a PacMan and two new Ghosts and adds these characters to the map. The attack() function is called on the ghoststo see if the they are able to attack PacMan.
+
+
 ##### getLoc:
 - **Author:** Uyen Nguyen
 - **Method Summary:** `(Location loc) -> HashSet<Type>`
