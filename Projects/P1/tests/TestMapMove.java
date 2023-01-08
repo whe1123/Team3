@@ -5,10 +5,10 @@ public class TestMapMove extends TestCase {
 
   protected void setUp() {
     // Initialize variables
-    int name_x = 5
-    int name_y = 5
-    int pac_x = 2
-    int pac_y = 4
+    int name_x = 5;
+    int name_y = 5;
+    int pac_x = 2;
+    int pac_y = 4;
 
     // Create a Map
     Mainframe frame = new MainFrame();
