@@ -64,6 +64,14 @@ public class Map {
 
   public boolean attack(String Name) {
     // update gameOver
+    Location ghostLoc = locations.get(Name);
+
+    if(map.getLoc(ghostLoc).is_pacman_in_range()){
+        map.getLoc(ghostLoc).attack();
+	gameOver = true;
+	return true;
+    }
+    
     return false;
   }
 
