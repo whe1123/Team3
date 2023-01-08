@@ -14,6 +14,12 @@ java -cp "src/" StartMenu
 ### 3. Functions with implementation and testing
 #### 3.1 PacMan Class
 #####
+##### is_ghost_in_range():
+- **Author:** Dan Xu
+- **Method Summary:** `() -> Bool`
+This method checks to see if there are any ghosts within attack range of PacMan. A ghost is considered in attack range if it is within 1 space of Pacman's position.
+- **Testing:** Creates a new map. Creates a new Pacman at location (9, 11) and a new Ghost at location (9, 12) and adds these two characters to the map. The is_ghost_in_range() function is called on the Pacman to see if the ghost in within attacking range.
+
 ##### move():
 - **Author:** Uyen Nguyen
 - **Method Summary:** `() -> Bool`
