@@ -31,9 +31,9 @@ public class PacMan {
 
 	// Scrolls through all the Y values
         for(int j = tempY - 1; j <= tempY + 1; j++){
-            Location tempLoc = new Location(tempX, tempY);
+            Location tempLoc = new Location(i, j);
 	    
-	    // CHecks if the current location is a ghost
+	    // Checks if the current location is a ghost
 	    if(myMap.getLoc(tempLoc) == Map.Type.GHOST){
 	        return true;
 	    }
