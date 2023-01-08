@@ -51,7 +51,7 @@ This method checks to see if the provided ghost is able to attack PacMan.
 - **Testing:** Creates a new map. Creates a PacMan and two new Ghosts and adds these characters to the map. The attack() function is called on the ghoststo see if the they are able to attack PacMan.
 
 
-##### getLoc:
+##### getLoc(Location loc)
 - **Author:** Uyen Nguyen
 - **Method Summary:** `(Location loc) -> HashSet<Type>`
 This method returns the type of object (Empty, Pacman, Cookie, Ghost, Wall) at a given location.
