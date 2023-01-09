@@ -25,7 +25,7 @@ public class PacMan {
    * Method by adhetzer
   */ 
   public ArrayList<Location> get_valid_moves() {
-    currentLoc = self.myLoc;
+    Location currentLoc = this.myLoc;
     ArrayList<Location> validMoves = null;
 
     // There are eight locations surrounding PacMan's current location

@@ -1,18 +1,21 @@
 import java.io.*;
 import junit.framework.*;
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class TestPacManValidMoves extends TestCase {
-
-  @Test
-  public void testAdjacentGhost(){
+  public void testAdjacentGhost() throws FileNotFoundException {
     // Create a map with Walls and Tokens
     MainFrame frame = new MainFrame();
 
     // Create PacMan
     PacMan pacman = frame.addPacMan(new Location(5,10));
 
-    ArrayList<Location> expectedMoves = {new Location(9,12), new Location(10,11), new Location(10,12)};
+    //Initialize Array List of Expected Locations
+    ArrayList<Location> expectedMoves = new ArrayList<Location>();
+    expectedMoves.add(new Location(9,12));
+    expectedMoves.add(new Location(10,11));
+    expectedMoves.add(new Location(10,12));
 
     System.out.println("test adjacent ghost");
 
@@ -29,7 +32,11 @@ public class TestPacManValidMoves extends TestCase {
     // Create PacMan
     PacMan pacman = frame.addPacMan(new Location(5,10));
 
-    ArrayList<Location> expectedMoves = {new Location(9,12), new Location(10,11), new Location(10,12)};
+    //Initialize Array List of Expected Locations
+    ArrayList<Location> expectedMoves = new ArrayList<Location>();
+    expectedMoves.add(new Location(9,12));
+    expectedMoves.add(new Location(10,11));
+    expectedMoves.add(new Location(10,12));
 
     System.out.println("test no ghost adjacent");
 
