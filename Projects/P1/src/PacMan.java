@@ -26,7 +26,8 @@ public class PacMan {
   */ 
   public ArrayList<Location> get_valid_moves() {
     Location currentLoc = this.myLoc;
-    ArrayList<Location> validMoves = null;
+    ArrayList<Location> validMoves;
+    validMoves = new ArrayList<Location>();
 
     // There are eight locations surrounding PacMan's current location
     // So, we will check if any of these locations are a Map.Type.WALL.

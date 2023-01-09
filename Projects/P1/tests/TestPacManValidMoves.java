@@ -7,16 +7,19 @@ public class TestPacManValidMoves extends TestCase {
   // Tests PacMan.get_valid_moves() when a Ghost is next to it
   public void testAdjacentGhost() throws FileNotFoundException {
     // Create a map with Walls and Tokens
-    MainFrame frame = new MainFrame();
+    //MainFrame frame = new MainFrame();
+    NoFrame frame = new NoFrame();
+    
 
     // Create PacMan
     PacMan pacman = frame.addPacMan(new Location(5,10));
 
     //Initialize Array List of Expected Locations
-    ArrayList<Location> expectedMoves = new ArrayList<Location>();
-    expectedMoves.add(new Location(9,12));
-    expectedMoves.add(new Location(10,11));
-    expectedMoves.add(new Location(10,12));
+    ArrayList<Location> expectedMoves;
+    expectedMoves = new ArrayList<Location>();
+      expectedMoves.add(new Location(9,12));
+      expectedMoves.add(new Location(10,11));
+      expectedMoves.add(new Location(10,12));
 
     System.out.println("test adjacent ghost");
 
@@ -26,18 +29,21 @@ public class TestPacManValidMoves extends TestCase {
     assertEquals(pacman.get_valid_moves(), expectedMoves);
   }
 
+  // Tests PacMan.get_valid_moves() when a Ghost is not next to it
   public void testPacManValidMoves() throws FileNotFoundException {
     // Create a map with Walls and Tokens
-    MainFrame frame = new MainFrame();
+    //MainFrame frame = new MainFrame();
+    NoFrame frame = new NoFrame();
 
     // Create PacMan
     PacMan pacman = frame.addPacMan(new Location(5,10));
 
     //Initialize Array List of Expected Locations
-    ArrayList<Location> expectedMoves = new ArrayList<Location>();
-    expectedMoves.add(new Location(9,12));
-    expectedMoves.add(new Location(10,11));
-    expectedMoves.add(new Location(10,12));
+    ArrayList<Location> expectedMoves;
+    expectedMoves = new ArrayList<Location>();
+      expectedMoves.add(new Location(9,12));
+      expectedMoves.add(new Location(10,11));
+      expectedMoves.add(new Location(10,12));
 
     System.out.println("test no ghost adjacent");
 
