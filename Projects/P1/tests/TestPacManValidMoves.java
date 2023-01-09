@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class TestPacManValidMoves extends TestCase {
+  // Tests PacMan.get_valid_moves() when a Ghost is next to it
   public void testAdjacentGhost() throws FileNotFoundException {
     // Create a map with Walls and Tokens
     MainFrame frame = new MainFrame();
