@@ -38,8 +38,8 @@ public class PacMan {
         Location testLocation = currentLoc.shift(currentLoc.x + x, currentLoc.y + y);
 
         // The only non-valid move for PacMan is going through a WALL
-        if (!(map.getLoc(testLocation).contains(Map.Type.WALL) 
-                && map.getLoc(testLocation).contains(Map.Type.GHOST))) {
+        if (!(this.myMap.getLoc(testLocation).contains(Map.Type.WALL) 
+                && this.myMap.getLoc(testLocation).contains(Map.Type.GHOST))) {
           validMoves.add(testLocation);
         }
       }
