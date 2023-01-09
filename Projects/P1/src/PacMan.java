@@ -33,12 +33,13 @@ public class PacMan {
     // The outer for loop will be used to adjust the x-coordinate 
     // to be checked. The inner for loop will be used to adjust the
     // y-coordinate to be checked.
-    for (x = -1; x < 2; x++) {
-      for (y = -1; y < 2; y++) {
-        testLocation = currentLoc.shift(currentLoc + x, currentLoc + y)
+    for (int x = -1; x < 2; x++) {
+      for (int y = -1; y < 2; y++) {
+        Location testLocation = currentLoc.shift(currentLoc.x + x, currentLoc.y + y)
 
         // The only non-valid move for PacMan is going through a WALL
-        if (map.getLoc(testLocation) != Map.Type.WALL) {
+        if (!(map.getLoc(testLocation).contains(Map.Type.WALL) 
+                && map.getLoc(testLocation).contains(Map.Type.GHOST))) {
           validMoves.add(testLocation);
         }
       }
