@@ -67,16 +67,13 @@ public class Map {
     // Check if the object to be moved exists in components. If not
     // return false. Otherwise continue to move.
     if (components.containsKey(name) && type != Map.Type.EMPTY){
-      // Updates field. We will assume that loc already exists in field
-      // for a valid move. This is because we can't move to a non-existant
-      // location.
       if (field.containsKey(loc)) {
         HashSet<Type> tempTypeSet = field.get(loc);
         tempTypeSet.add(type);
         field.put(loc, tempTypeSet);
       } else { 
-        // Returns false if loc doesn't already exist in field
-        return false;
+        field.put(loc, new HashSet<Type>());
+        field.get(loc).add(type);
       }
 
       // Update locations, and components
