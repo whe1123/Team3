@@ -11,12 +11,14 @@ public class TestPacManValidMoves extends TestCase {
     // Create PacMan
     PacMan pacman = frame.addPacMan(new Location(5,10));
 
+    ArrayList<Location> expectedMoves = {new Location (9,12), new Location (10,11), new Location (10,12)}
+
     System.out.println("test adjacent ghost");
 
     // Add ghost
     Ghost ghost = frame.addGhost(new Location(6,10), "name", Color.red);
 
-    assertEquals(pacman.get_valid_moves(), {(9,12), (10,11), (10,12)});
+    assertEquals(pacman.get_valid_moves(), expectedMoves);
   }
 
   public void testPacManValidMoves() throws FileNotFoundException {
@@ -26,8 +28,10 @@ public class TestPacManValidMoves extends TestCase {
     // Create PacMan
     PacMan pacman = frame.addPacMan(new Location(5,10));
 
+    ArrayList<Location> expectedMoves = {new Location (9,12), new Location (10,11), new Location (10,12)}
+
     System.out.println("test no ghost adjacent");
 
-    assertEquals (pacman.get_valid_moves(), {(9,12), (10,11), (10,12)});
+    assertEquals(pacman.get_valid_moves(), expectedMoves);
   }
 }

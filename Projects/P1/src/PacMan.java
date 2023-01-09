@@ -35,7 +35,7 @@ public class PacMan {
     // y-coordinate to be checked.
     for (int x = -1; x < 2; x++) {
       for (int y = -1; y < 2; y++) {
-        Location testLocation = currentLoc.shift(currentLoc.x + x, currentLoc.y + y)
+        Location testLocation = currentLoc.shift(currentLoc.x + x, currentLoc.y + y);
 
         // The only non-valid move for PacMan is going through a WALL
         if (!(map.getLoc(testLocation).contains(Map.Type.WALL) 
