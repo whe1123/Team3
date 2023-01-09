@@ -25,7 +25,7 @@ public class PacMan {
    * Method by adhetzer
   */ 
   public ArrayList<Location> get_valid_moves() {
-    currentLoc = self.myLoc;
+    Location currentLoc = this.myLoc;
     ArrayList<Location> validMoves = null;
 
     // There are eight locations surrounding PacMan's current location
@@ -33,12 +33,14 @@ public class PacMan {
     // The outer for loop will be used to adjust the x-coordinate 
     // to be checked. The inner for loop will be used to adjust the
     // y-coordinate to be checked.
-    for (x = -1; x < 2; x++) {
-      for (y = -1; y < 2; y++) {
-        testLocation = currentLoc.shift(currentLoc + x, currentLoc + y)
+    for (int x = -1; x < 2; x++) {
+      for (int y = -1; y < 2; y++) {
+        Location testLocation = currentLoc.shift(currentLoc.x + x, currentLoc.y + y);
 
-        // The only non-valid move for PacMan is going through a WALL
-        if (map.getLocation(testLocation) != Map.Type.WALL) {
+        // The only non-valid moves for PacMan is going through a WALL or GHOST
+        // So add valid move if location is not a WALL or GHOST
+        if (!(this.myMap.getLoc(testLocation).contains(Map.Type.WALL) 
+                && this.myMap.getLoc(testLocation).contains(Map.Type.GHOST))) {
           validMoves.add(testLocation);
         }
       }

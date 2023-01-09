@@ -66,12 +66,14 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // Check if the object to be moved exists in components. If not
     // return false. Otherwise continue to move.
-    if (components.containsKey(name) && type != Map.Type.Empty){
+    if (components.containsKey(name) && type != Map.Type.EMPTY){
       // Updates field. We will assume that loc already exists in field
       // for a valid move. This is because we can't move to a non-existant
       // location.
       if (field.containsKey(loc)) {
-        field.put(loc, type);
+        HashSet<Type> tempTypeSet = field.get(loc);
+        tempTypeSet.add(type);
+        field.put(loc, tempTypeSet);
       } else { 
         // Returns false if loc doesn't already exist in field
         return false;
@@ -84,16 +86,16 @@ public class Map {
       // Update JComponent depending on type using setLocation(...)
       // to move it to the new location. Returns true
       if (type == Map.Type.PACMAN) {
-        PacManComponent.setLocation(loc.x, loc.y);
+        components.get(name).setLocation(loc.x, loc.y);
         return true;
       } else if (type == Map.Type.GHOST) {
-        GhostComponent.setLocation(loc.x, loc.y);
+        components.get(name).setLocation(loc.x, loc.y);
         return true;
       } else if (type == Map.Type.WALL) {
-        WallComponent.setLocation(loc.x, loc.y); 
+        components.get(name).setLocation(loc.x, loc.y); 
         return true;
       } else if (type == Map.Type.COOKIE) {
-        CookieComponent.setLocation(loc.x, loc.y);
+        components.get(name).setLocation(loc.x, loc.y);
         return true;
       } else {
         // Returns false for invalid Map.Types and Map.Type.Empty
