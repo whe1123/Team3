@@ -89,7 +89,7 @@ public class Map {
       // Returns false for trying to move objects with names
       // that do not match existing names (should use add instead)
       // OR for trying to move objects that are not Map.Type.GHOST
-      // or Map.Type.PACMAN
+      // or Map.Type.PACMAN 
       return false;
     }
   }
