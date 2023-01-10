@@ -76,9 +76,10 @@ public class Map {
     types.remove(Type.COOKIE);
     field.put(loc, types);
     cookies--;
-    JComponent cookie = components.get("tok_" + loc.toString()); //Review cookie component 
-    locations.remove("tok_" + loc.toString());
-    components.remove("tok_" + loc.toString());
+    String loc_tmp = "tok_x"+ loc.x + "_y"+ loc.y; // corecting the key based on the spec
+    JComponent cookie = components.get(loc_tmp); //Review cookie component 
+    locations.remove(loc_tmp);
+    components.remove(loc_tmp); 
     return cookie;
   }
 }
