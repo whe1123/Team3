@@ -24,21 +24,22 @@ public class Ghost {
    * Method by adhetzer
   */
   public ArrayList<Location> get_valid_moves() {
-    currentLoc = self.myLoc
-    ArrayList<Location> validMoves = null
+    Location currentLoc = this.myLoc;
+    ArrayList<Location> validMoves;
+    validMoves = new ArrayList<Location>();
 
     // There are eight locations surrounding a Ghost's current location
     // So, we will check if any of these locations are a Map.Type.WALL.
     // The outer for loop will be used to adjust the x-coordinate 
     // to be checked. The inner for loop will be used to adjust the
     // y-coordinate to be checked.
-    for (x = -1; x < 2; x++) {
-      for (y = -1; y < 2; y++) {
-        testLocation = currentLoc.shift(currentLoc + x, currentLoc + y)
+    for (int x = -1; x < 2; x++) {
+      for (int y = -1; y < 2; y++) {
+        Location testLocation = currentLoc.shift(currentLoc.x + x, currentLoc.y + y);
 
         // The only non-valid move for a Ghost is going through a WALL
-        if (map.getLoc(testLocation) != Map.Type.WALL) {
-          validMoves.add(testLocation)
+        if (!(this.myMap.getLoc(testLocation).contains(Map.Type.WALL))) {
+          validMoves.add(testLocation);
         }
       }
     }
