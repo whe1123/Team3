@@ -7,7 +7,7 @@ public class TestConsume extends TestCase {
     // Create a Map object and set up the game state
     Map map = new Map(10);
     Location pacmanLoc = new Location(5, 5);
-    map.add("PacMan", pacmanLoc, null, Type.PACMAN);
+    map.add("PacMan", pacmanLoc, null, Map.Type.PACMAN);
     Location cookieLoc = new Location(5, 5);
     map.add("tok_" + cookieLoc.toString(), cookieLoc, new JButton("Cookie"), Type.COOKIE);
 
