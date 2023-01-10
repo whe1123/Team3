@@ -66,8 +66,7 @@ public class Map {
     // update gameOver
     Location ghostLoc = locations.get(Name);
 
-    if(map.getLoc(ghostLoc).is_pacman_in_range()){
-        map.getLoc(ghostLoc).attack();
+    if(map.getLoc(ghostLoc).contains(Map.Type.PACMAN){
 	gameOver = true;
 	return true;
     }
