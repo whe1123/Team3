@@ -51,11 +51,11 @@ public class TestMapMove extends TestCase {
     assertEquals(frame.getMap().move("name", new Location(5,5), Map.Type.GHOST), true);
 
     // Check GHOST invalid move - Invalid name
-    System.out.println("Testing Map.move() with name_invalid, at -1, -1, as GHOST -> Invalid name");
-    assertEquals(frame.getMap().move("name_invalid", new Location(-1,-1), Map.Type.GHOST), false);
+    System.out.println("Testing Map.move() with name_invalid, at 5, 5, as GHOST -> Invalid name");
+    assertEquals(frame.getMap().move("name_invalid", new Location(5,5), Map.Type.GHOST), false);
   }
 
-  // Check WALL valid move
+  // Check WALL invalid move - all WALL are invalid moves
   public void testMapMoveWALL() throws FileNotFoundException {
     // Initialize variables
     int name_x = 5;
@@ -73,10 +73,10 @@ public class TestMapMove extends TestCase {
 
     // Begin test(s)
     System.out.println("Testing Map.move() with wall, at 0, 0, as WALL -> Valid");
-    assertEquals(frame.getMap().move("wall", new Location(0, 0), Map.Type.WALL), true);
+    assertEquals(frame.getMap().move("wall", new Location(0, 0), Map.Type.WALL), false);
   }
 
-  // Test Map.Type.EMPTY
+  // Check EMPTY invalid move - all EMPTY are invalid moves
   public void testMapMoveEMPTY() throws FileNotFoundException {
     // Initialize variables
     int name_x = 5;
