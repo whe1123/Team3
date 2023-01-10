@@ -66,7 +66,7 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // Check if the object to be moved exists in components. If not
     // return false. Otherwise continue to move.
-    if (components.containsKey(name) && (type == Map.Type.PACMAN || type ==Map.Type.GHOST)){
+    if (components.containsKey(name) && (type == Map.Type.PACMAN || type == Map.Type.GHOST)){
       if (field.containsKey(loc)) {
         HashSet<Type> tempTypeSet = field.get(loc);
         tempTypeSet.add(type);
