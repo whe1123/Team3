@@ -32,7 +32,7 @@ public class Ghost {
 	    Location tempLoc = new Location(i, j);
 
 	    // Checks if the current location is a pacman
-	    if(myMap.getLoc(tempLoc) == Map.Type.PACMAN){
+	    if(myMap.getLoc(tempLoc).contains(Map.Type.PACMAN)){
 	        return true;
 	    }
 	}
