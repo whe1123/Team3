@@ -24,6 +24,14 @@ public class Ghost {
   }
 
   public boolean attack() {
+  if (!is_pacman_in_range()) {
     return false;
+    Location pacmanLoc = myMap.locations.get("PacMan");
+    myMap.move(myName, pacmanLoc, Type.GHOST);
+    return true;
+  }
+  Location pacmanLoc = myMap.locations.get("PacMan");
+  myMap.move(myName, pacmanLoc, Type.GHOST);
+  return true;
   }
 }
