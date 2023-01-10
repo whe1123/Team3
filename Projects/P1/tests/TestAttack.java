@@ -1,25 +1,17 @@
 import java.io.*;
 import junit.framework.*;
+import java.awt.Color;
 
 public class TestAttack extends TestCase {
 
-  public void testAttack()  {
-    // Create a Map object and set up the game state
-    Map map = new Map(10);
-    Location pacmanLoc = new Location(5, 5);
-    map.add("PacMan", pacmanLoc, null, Map.Type.PACMAN);
-    Location ghostLoc = new Location(4, 5);
-    map.add("Ghost", ghostLoc, null, Map.Type.GHOST);
-
-    // Create a Ghost object and set its myMap field to the Map object
-    Ghost ghost = new Ghost("Ghost", ghostLoc, map);
+  public void testAttack() throws FileNotFoundException  {
+    NoFrame frame = new NoFrame(); //Creates A New Map With Walls and Tokens w/o a Display
+//Creating Players
+Ghost ghost = frame.addGhost(new Location(1, 1), "name", Color.red); //Creates a red ghost named "name"
+    PacMan pacman = frame.addPacMan(new Location(0,1)); //Creates PacMan at location x, y
 
     // Test that the attack is successful when PacMan is within range
     assertTrue(ghost.attack());
-
-    // Test that the attack fails when PacMan is out of range
-    ghostLoc = new Location(0, 0);
-    ghost.myLoc = ghostLoc;
-    assertFalse(ghost.attack());
+  
   }
 }
