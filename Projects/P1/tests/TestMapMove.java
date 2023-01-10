@@ -12,7 +12,8 @@ public class TestMapMove extends TestCase {
     int pac_y = 4;
 
     // Create a Map
-    MainFrame frame = new MainFrame();
+    //MainFrame frame = new MainFrame();
+    NoFrame frame = new NoFrame();
 
     // Create Players
     Ghost ghost = frame.addGhost(new Location(name_x, name_y), "name", Color.red);
@@ -37,7 +38,8 @@ public class TestMapMove extends TestCase {
     int pac_y = 4;
 
     // Create a Map
-    MainFrame frame = new MainFrame();
+    //MainFrame frame = new MainFrame();
+    NoFrame frame = new NoFrame();
 
     // Create Players
     Ghost ghost = frame.addGhost(new Location(name_x, name_y), "name", Color.red);
@@ -62,7 +64,8 @@ public class TestMapMove extends TestCase {
     int pac_y = 4;
 
     // Create a Map
-    MainFrame frame = new MainFrame();
+    //MainFrame frame = new MainFrame();
+    NoFrame frame = new NoFrame();
 
     // Create Players
     Ghost ghost = frame.addGhost(new Location(name_x, name_y), "name", Color.red);
@@ -82,7 +85,8 @@ public class TestMapMove extends TestCase {
     int pac_y = 4;
 
     // Create a Map
-    MainFrame frame = new MainFrame();
+    //MainFrame frame = new MainFrame();
+    NoFrame frame = new NoFrame();
 
     // Create Players
     Ghost ghost = frame.addGhost(new Location(name_x, name_y), "name", Color.red);
@@ -107,7 +111,8 @@ public class TestMapMove extends TestCase {
     int pac_y = 4;
 
     // Create a Map
-    MainFrame frame = new MainFrame();
+    //MainFrame frame = new MainFrame();
+    NoFrame frame = new NoFrame();
 
     // Create Players
     Ghost ghost = frame.addGhost(new Location(name_x, name_y), "name", Color.red);
