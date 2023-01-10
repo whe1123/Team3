@@ -73,7 +73,7 @@ public class Map {
         field.put(loc, tempTypeSet);
       } else { 
         // Returns false if location attempting to move to is not in field
-        return false
+        return false;
       }
 
       // Update locations, and components
