@@ -18,8 +18,8 @@ java -cp "src/" StartMenu
 ##### get_valid_moves():
 - **Author:** Aaron Hetzer
 - **Method Summary:** `() -> ArrayList<Location>`
-This method checks to see if it is valid for PacMan to move to his surrounding 'location'. A square is considered 
-- **Testing:** Create a new map. Create a Pacman at location (1, 3). Add the pacman to map at the same location. Use getLoc to check if Pacman is at (1, 3). Let it move. Use getLoc to check location (1, 3) to see whether Pacman is still there.
+This method checks to see if it is valid for PacMan to move to his surrounding location. A move is considered valid if the location is not already occupied by a Map.Type.WALL object. This method returns an ArrayList<Location> of valid move locations.
+- **Testing:** This method has two tests: `testAdjacentGhost()` checks if a `Ghost` next to the PacMan returns an incorrect ArrayList? It creates a new map. Creates a Pacman at location (5, 10). Creates an `ArrayList<Location>` of expected valid moves. Creates a `Ghost` object at location (6,10). Checks `get_valid_moves()` against the expected valid moves. `testPacManValidMoves()()` uses the same setup as `testAdjacentGhost()` but with no adjacent `Ghost`.
 
 ##### is_ghost_in_range():
 - **Author:** Dan Xu
