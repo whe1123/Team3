@@ -83,7 +83,8 @@ public class Map {
       // Update JComponent depending on type using setLocation(...)
       // to move it to the new location. Returns true
       components.get(name).setLocation(loc.x, loc.y);
-      
+
+      return true;
     } else {
       // Returns false for trying to move objects with names
       // that do not match existing names (should use add instead)
@@ -91,7 +92,6 @@ public class Map {
       // or Map.Type.PACMAN
       return false;
     }
-    return false;
   }
 
   public HashSet<Type> getLoc(Location loc) {
