@@ -27,11 +27,11 @@ public class Ghost {
   if (!is_pacman_in_range()) {
     return false;
     Location pacmanLoc = myMap.locations.get("PacMan");
-    myMap.move(myName, pacmanLoc, Type.GHOST);
+    myMap.move(myName, pacmanLoc, Map.Type.GHOST);
     return true;
   }
   Location pacmanLoc = myMap.locations.get("PacMan");
-  myMap.move(myName, pacmanLoc, Type.GHOST);
+  myMap.move(myName, pacmanLoc, Map.Type.GHOST);
   return true;
   }
 }

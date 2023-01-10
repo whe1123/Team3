@@ -7,9 +7,9 @@ public class TestAttack extends TestCase {
     // Create a Map object and set up the game state
     Map map = new Map(10);
     Location pacmanLoc = new Location(5, 5);
-    map.add("PacMan", pacmanLoc, null, Type.PACMAN);
+    map.add("PacMan", pacmanLoc, null, Map.Type.PACMAN);
     Location ghostLoc = new Location(4, 5);
-    map.add("Ghost", ghostLoc, null, Type.GHOST);
+    map.add("Ghost", ghostLoc, null, Map.Type.GHOST);
 
     // Create a Ghost object and set its myMap field to the Map object
     Ghost ghost = new Ghost("Ghost", ghostLoc, map);
