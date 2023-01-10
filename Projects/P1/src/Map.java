@@ -91,6 +91,7 @@ public class Map {
       // or Map.Type.PACMAN
       return false;
     }
+    return false;
   }
 
   public HashSet<Type> getLoc(Location loc) {
