@@ -72,6 +72,7 @@ public class Map {
         tempTypeSet.add(type);
         field.put(loc, tempTypeSet);
       } else { 
+        // Returns false if location attempting to move to is not in field
         return false
       }
 
@@ -81,26 +82,13 @@ public class Map {
 
       // Update JComponent depending on type using setLocation(...)
       // to move it to the new location. Returns true
-      if (type == Map.Type.PACMAN) {
-        components.get(name).setLocation(loc.x, loc.y);
-        return true;
-      } else if (type == Map.Type.GHOST) {
-        components.get(name).setLocation(loc.x, loc.y);
-        return true;
-      } else if (type == Map.Type.WALL) {
-        components.get(name).setLocation(loc.x, loc.y); 
-        return true;
-      } else if (type == Map.Type.COOKIE) {
-        components.get(name).setLocation(loc.x, loc.y);
-        return true;
-      } else {
-        // Returns false for invalid Map.Types and Map.Type.Empty
-        return false;
-      }
+      components.get(name).setLocation(loc.x, loc.y);
+      
     } else {
       // Returns false for trying to move objects with names
       // that do not match existing names (should use add instead)
-      // OR for trying to move Map.Type.Empty objects.
+      // OR for trying to move objects that are not Map.Type.GHOST
+      // or Map.Type.PACMAN
       return false;
     }
   }
