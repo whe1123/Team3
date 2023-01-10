@@ -17,7 +17,7 @@ java -cp "src/" StartMenu
 
 ##### get_valid_moves():
 - **Author:** Aaron Hetzer
-- **Method Summary:** `() -> Bool`
+- **Method Summary:** `() -> ArrayList<Location>`
 This method checks to see if it is valid for PacMan to move to his surrounding 'location'. A square is considered 
 - **Testing:** Create a new map. Create a Pacman at location (1, 3). Add the pacman to map at the same location. Use getLoc to check if Pacman is at (1, 3). Let it move. Use getLoc to check location (1, 3) to see whether Pacman is still there.
 
