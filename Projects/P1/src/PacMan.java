@@ -23,8 +23,8 @@ public class PacMan {
 
   public boolean is_ghost_in_range() {
 
-    tempX = myLoc.x;
-    tempY = myLoc.y;
+    int tempX = myLoc.x;
+    int tempY = myLoc.y;
 
     // Scrolls through all the X values
     for(int i = tempX - 1; i <= tempX + 1; i++){
