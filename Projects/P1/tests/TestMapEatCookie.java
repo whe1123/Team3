@@ -1,4 +1,8 @@
 import java.io.*;
+
+import javax.swing.JButton;
+import javax.swing.JComponent;
+
 import junit.framework.*;
 
 public class TestMapEatCookie extends TestCase {
@@ -9,7 +13,7 @@ public class TestMapEatCookie extends TestCase {
     Location pacmanLoc = new Location(5, 5);
     map.add("PacMan", pacmanLoc, null, Map.Type.PACMAN);
     Location cookieLoc = new Location(5, 5);
-    map.add("tok_" + cookieLoc.toString(), cookieLoc, new JButton("Cookie"), Type.COOKIE);
+    map.add("tok_" + cookieLoc.toString(), cookieLoc, new JButton("Cookie"), Map.Type.COOKIE);
 
     // Test that PacMan can eat a cookie at its current location
     JComponent cookie = map.eatCookie("PacMan");
@@ -19,7 +23,7 @@ public class TestMapEatCookie extends TestCase {
     // Test that PacMan can't eat a cookie at a different location
     pacmanLoc = new Location(0, 0);
     map.add("PacMan", pacmanLoc, null, Map.Type.PACMAN);
-    JComponent cookie = map.eatCookie("PacMan");
+    JComponent cookie2 = map.eatCookie("PacMan");
     assertNull(cookie);
     assertEquals(map.getCookies(), 1);
   }

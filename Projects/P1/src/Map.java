@@ -69,14 +69,14 @@ public class Map {
 
   public JComponent eatCookie(String name) {
     Location loc = locations.get(name);
-    HashSet<Type> types = getLoc(loc);
-    if (!types.contains(Type.COOKIE)) {
+    if (getLoc(loc) == null) {
       return null;
     }
+    HashSet<Type> types = getLoc(loc);
     types.remove(Type.COOKIE);
     field.put(loc, types);
-    cookies++;
-    JComponent cookie = components.get("tok_" + loc.toString());
+    cookies--;
+    JComponent cookie = components.get("tok_" + loc.toString()); //Review cookie component 
     locations.remove("tok_" + loc.toString());
     components.remove("tok_" + loc.toString());
     return cookie;
