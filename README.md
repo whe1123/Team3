@@ -19,7 +19,7 @@ java -cp "src/" StartMenu
 - **Author:** Aaron Hetzer
 - **Method Summary:** `() -> ArrayList<Location>`
 This method checks to see if it is valid for PacMan to move to his surrounding location. A move is considered valid if the location is not already occupied by a Map.Type.WALL object. This method returns an ArrayList<Location> of valid move locations.
-- **Testing:** This method has two tests: `testAdjacentGhost()` checks if a `Ghost` next to the PacMan returns an incorrect ArrayList? It creates a new map. Creates a Pacman at location (5, 10). Creates an `ArrayList<Location>` of expected valid moves. Creates a `Ghost` object at location (6,10). Checks `get_valid_moves()` against the expected valid moves. `testPacManValidMoves()()` uses the same setup as `testAdjacentGhost()` but with no adjacent `Ghost`.
+- **Testing:** This method has two tests: `testAdjacentGhost()` checks if a `Ghost` next to the PacMan returns an incorrect ArrayList. It creates a new map. Creates a Pacman at location (5, 10). Creates an `ArrayList<Location>` of expected valid moves. Creates a `Ghost` object at location (6,10). Checks `get_valid_moves()` against the expected valid moves. `testPacManValidMoves()()` uses the same setup as `testAdjacentGhost()` but with no adjacent `Ghost`.
 
 ##### is_ghost_in_range():
 - **Author:** Dan Xu
@@ -36,6 +36,13 @@ This method implements PacMan's movements. First, it finds a set of locations wh
 #####
 #### 3.2 Ghost Class
 #####
+
+##### get_valid_moves():
+- **Author:** Aaron Hetzer
+- **Method Summary:** `() -> ArrayList<Location>`
+This method checks to see if it is valid for Ghost to move to his surrounding location. A move is considered valid if the location is not already occupied by a Map.Type.WALL object. This method returns an ArrayList<Location> of valid move locations.
+- **Testing:** This method has two tests: `testGhostValidMovesPacManAdjacent()` checks if a `PacMan` next to the Ghost returns an incorrect ArrayList. It creates a new map. Creates a Pacman at location (6, 10). Creates an `ArrayList<Location>` of expected valid moves. Creates a `Ghost` object at location (5,10). Checks `get_valid_moves()` against the expected valid moves. `testPacManValidMoves()()` uses the same setup as `testGhostValidMovesNoAdjacent()` but with no adjacent `PacMan`.
+
 ##### is_pacman_in_range():
 - **Author:** Dan Xu
 - **Method Summary:** `() -> Bool`
