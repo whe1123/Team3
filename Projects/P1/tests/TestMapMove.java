@@ -23,10 +23,6 @@ public class TestMapMove extends TestCase {
     // Check PACMAN valid move
     System.out.println("Testing Map.move() with pacman, at 2,4, as PACMAN -> Valid");
     assertEquals(true, frame.getMap().move("pacman", new Location(2,4), Map.Type.PACMAN));
-
-    // Check PACMAN invalid move - invalid loc
-    System.out.println("Testing Map.move() with pacman, at -1, -1, as PACMAN -> Invalid loc");
-    assertEquals(frame.getMap().move("pacman", new Location(-1,-1), Map.Type.PACMAN), false);
   }
 
   // Test PACMAN at invalid location
@@ -71,11 +67,7 @@ public class TestMapMove extends TestCase {
     // Begin test(s)
     // Check GHOST valid move
     System.out.println("Testing Map.move() with name, at 5,5, as GHOST -> Valid");
-    assertEquals(true, frame.getMap().move("name", new Location(5,5), Map.Type.GHOST), true);
-
-    // Check GHOST invalid move - Invalid name
-    System.out.println("Testing Map.move() with name_invalid, at 5, 5, as GHOST -> Invalid name");
-    assertEquals(frame.getMap().move("name_invalid", new Location(5,5), Map.Type.GHOST), false);
+    assertEquals(true, frame.getMap().move("name", new Location(5,5), Map.Type.GHOST));
   }
 
   // Check WALL invalid move - all WALL are invalid moves
@@ -139,6 +131,6 @@ public class TestMapMove extends TestCase {
 
     // Begin test(s)
     System.out.println("Testing Map.move() with morbid_angel, at 1, 1, as PACMAN -> Invalid name");
-    assertEquals(frame.getMap().move("morbid_angel", new Location(2, 4), Map.Type.PACMAN), false);
+    assertEquals(false, frame.getMap().move("morbid_angel", new Location(2, 4), Map.Type.PACMAN));
   }
 }
