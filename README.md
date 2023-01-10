@@ -51,6 +51,13 @@ This method implements Ghost's movements. First, it finds a set of locations whe
 #####
 #### 3.3 Map Class
 #####
+
+##### move():
+- **Author:** Aaron Hetzer
+- **Method Summary:** `(String name, Location loc, Type type) -> Bool`
+This method takes in the name, and type of a Ghost or PacMan object on the Map, and a existing location to move that object to. If the name doesn't exist in `components`, the loc doesn't exist in `locations` or the type is not PACMAN or GHOST, then the method returns false. Otherwise, the method updates the `locations`, `field`, and `components` HashMaps to reflect this move, updates the JComponent based on the type, and returns true.
+- **Testing:** This method has six tests. Each of them have the same setup: Initialize a set of variables, a Map, Ghost, and PacMan objects. The tests then use this set up to check if a valid PacMan move returns true, an invalid location PacMan move returns false, a valid Ghost move returns true, and a Wall move, an Empty move, and an invalid name move all return false
+
 ##### attack():
 - **Author:** Dan Xu
 - **Method Summary:** `() -> Bool`
