@@ -95,7 +95,7 @@ public class PacMan {
   }
 
   public JComponent consume() {
-  JComponent cookie = myMap.eatCookie(myLoc);
+  JComponent cookie = myMap.eatCookie(myName);
   if (cookie != null) {
     return cookie;
   }
