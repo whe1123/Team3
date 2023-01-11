@@ -18,8 +18,5 @@ public class TestMapAttack extends TestCase {
 
       assertTrue(frame.attack("ghost"));
       assertFalse(frame.attack("ghost2"));
-
-
-      return null;
   }
 }
