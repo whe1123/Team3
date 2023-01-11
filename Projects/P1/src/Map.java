@@ -92,8 +92,10 @@ public class Map {
     // update gameOver
     Location ghostLoc = locations.get(Name);
 
-    if(map.getLoc(ghostLoc).is_pacman_in_range()){
-        map.getLoc(ghostLoc).attack();
+    Ghost ghost = new Ghost(Name, ghostLoc, this);
+
+    if(ghost.is_pacman_in_range()){
+	ghost.attack();
 	gameOver = true;
 	return true;
     }
