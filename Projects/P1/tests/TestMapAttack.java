@@ -16,8 +16,8 @@ public class TestMapAttack extends TestCase {
 
       frame.startGame();
 
-      assertTrue(frame.attack("ghost");
-      assertFalse(frame.attack("ghost2");
+      assertTrue(frame.attack("ghost"));
+      assertFalse(frame.attack("ghost2"));
 
 
       return null;
