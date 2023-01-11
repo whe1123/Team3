@@ -73,13 +73,16 @@ public class Map {
       return null;
     }
     HashSet<Type> types = getLoc(loc);
+    types.add(Type.EMPTY);
     types.remove(Type.COOKIE);
+
+    //Returns cookie compnenet with updated count
     field.put(loc, types);
     cookies--;
-    String loc_tmp = "tok_x"+ loc.x + "_y"+ loc.y; // corecting the key based on the spec
-    JComponent cookie = components.get(loc_tmp); //Review cookie component 
-    locations.remove(loc_tmp);
-    components.remove(loc_tmp); 
+    JComponent cookie = components.get(name); 
+    System.out.println(cookie.toString() + "Test" + (cookie == null));
+    locations.remove(name);
+    components.remove(name); 
     return cookie;
   }
 }
