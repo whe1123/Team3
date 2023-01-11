@@ -51,18 +51,6 @@ public class Map {
     return gameOver;
   }
 
-  /**
-   * This method takes a name, location, and Map.Type and puts the object
-   * specified by the name at the location specified.
-   * 
-   * If the method is able to succesfully move the object, it returns True.
-   * Otherwise, the method returns false.
-   * 
-   * The method requires the object specified by the name to already exist
-   * to return true.
-   * 
-   * Method written by adhetzer
-   */
   public boolean move(String name, Location loc, Type type) {
     // Check if the object to be moved exists in components. If not
     // return false. Otherwise continue to move.
