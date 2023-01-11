@@ -94,14 +94,33 @@ public class Ghost {
   }
 
   public boolean attack() {
-  if (!is_pacman_in_range()) {
-    return false;
-    Location pacmanLoc = myMap.locations.get("PacMan");
-    myMap.move(myName, pacmanLoc, Type.GHOST);
-    return true;
-  }
-  Location pacmanLoc = myMap.locations.get("PacMan");
-  myMap.move(myName, pacmanLoc, Type.GHOST);
-  return true;
-  }
+    // Based on Dan Xu's method for is_pacman_in_range
+    if (!is_pacman_in_range()) {
+      return false;
+    }
+    else{
+      int v1 = myLoc.x;
+      int v2 = myLoc.y;
+  
+      // Scrolls through all the X values
+      for(int i = v1 - 1; i <= v1 + 1; i++){
+        System.out.println("Test1");
+        //Scrolls through all the Y values
+        for(int j = v2 - 1; j <= v2 + 1; j++){
+            Location tempLoc = new Location(i, j);
+          System.out.println("Test1");
+            // Checks if the current location is a pacman
+            if(myMap.getLoc(tempLoc).contains(Map.Type.PACMAN)){
+                myMap.move(myName, tempLoc, Map.Type.GHOST);
+                System.out.println("Test3");
+                return true;
+            }
+        }
+      }
+  
+      return false;
+    }
+
+}
+
 }
