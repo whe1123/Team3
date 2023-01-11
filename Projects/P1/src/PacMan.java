@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import javax.swing.JComponent;
+import java.util.Random;
 
 public class PacMan {
   String myName;
@@ -14,11 +15,50 @@ public class PacMan {
   }
 
   public ArrayList<Location> get_valid_moves() {
-    return null;
+    Location currentLoc = this.myLoc;
+    ArrayList<Location> validMoves;
+    validMoves = new ArrayList<Location>();
+
+    // There are eight locations surrounding PacMan's current location
+    // So, we will check if any of these locations are a Map.Type.WALL.
+    // The outer for loop will be used to adjust the x-coordinate 
+    // to be checked. The inner for loop will be used to adjust the
+    // y-coordinate to be checked.
+    for (int x = -1; x < 2; x++) {
+      for (int y = -1; y < 2; y++) {
+        Location testLocation = currentLoc.shift(currentLoc.x + x, currentLoc.y + y);
+
+        // The only non-valid move for PacMan is going through a WALL 
+        if (!(this.myMap.getLoc(testLocation).contains(Map.Type.WALL))) {
+          validMoves.add(testLocation);
+        }
+      }
+    }
+    
+    return validMoves;
   }
 
   public boolean move() {
-    return false;
+    ArrayList<Location> smove = get_valid_moves();
+    
+    // PacMan not able to move
+    if (smove.isEmpty())
+    {
+    	return false;
+    }
+    else
+    {
+    	// Choose a random valid move
+    	Random rand = new Random();
+    	int getRanNum = rand.nextInt(smove.size());
+    	Location des = smove.get(getRanNum); 
+    	
+    	//Implement moving
+    	myLoc = des;
+    	myMap.move(myName, des, Map.Type.PACMAN);
+    	
+    	return true;
+    }
   }
 
   public boolean is_ghost_in_range() {
@@ -44,8 +84,10 @@ public class PacMan {
   }
 
   public JComponent consume() {
-    return null;
+  JComponent cookie = myMap.eatCookie(myName);
+  if (cookie != null) {
+    return cookie;
+  }
+  return null;
   }
 }
-
-
