@@ -20,3 +20,4 @@ public class TestMapAttack extends TestCase {
       assertFalse(frame.attack("ghost2"));
   }
 }
+
