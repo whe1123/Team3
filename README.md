@@ -95,7 +95,7 @@ This method returns the type of object (Empty, Pacman, Cookie, Ghost, Wall) at a
 
 ##### eatCookie(String Name):
 - **Author:** Syed Zaidi
-- **Method Summary:**
+- **Method Summary:** `(String name) -> JComponent`
 This method first gets PacMan's current location and checks if there is a cookie at that location using the getLoc method. If there is a cookie at PacMan's current location, the method removes the cookie from the game state, returns the cookie component, and updates the cookie count. If there is no cookie at PacMan's current location, the method returns null.
 - **Testing:** 
 Creates a Map object and adds PacMan and a cookie to it at specific locations. The test calls the eatCookie method of the Map object and verifies that it returns the expected values and updates the internal state of the Map object correctly. This test ensures that the eatCookie method correctly consumes a cookie at PacMan's current location, and that it returns the appropriate values and updates the game state correctly. It also
