@@ -6,7 +6,7 @@ public class TestMapAttack extends TestCase {
       NoFrame frame = new NoFrame();
 
       PacMan pacman = new PacMan("pacman", new Location(9, 12), frame.getMap());
-      frame.addPacMan(new Location(9, 12));
+      frame.addPacMan(new Location(9, 12);
       
       Ghost ghost = new Ghost("ghost", new Location(9, 11), frame.getMap());
       frame.addGhost(new Location(9, 11), "ghost", Color.red);
