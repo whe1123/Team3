@@ -59,3 +59,4 @@ public class Ghost {
     return false;
   }
 }
+
