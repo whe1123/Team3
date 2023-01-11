@@ -25,7 +25,9 @@ public class TestConsume extends TestCase {
     // Test that PacMan can't consume a cookie at a different location
     pacmanLoc = new Location(0, 0);
     pacman.myLoc = pacmanLoc;
+
     JComponent cookie2 = pacman.consume();
     assertNull(cookie2);
+
   }
 }
