@@ -115,16 +115,22 @@ public class Map {
 
   public JComponent eatCookie(String name) {
     Location loc = locations.get(name);
-    HashSet<Type> types = getLoc(loc);
-    if (!types.contains(Type.COOKIE)) {
+
+    if (getLoc(loc) == null) {
       return null;
     }
+    HashSet<Type> types = getLoc(loc);
+    types.add(Type.EMPTY);
     types.remove(Type.COOKIE);
+
+    //Returns cookie compnenet with updated count
     field.put(loc, types);
-    cookies++;
-    JComponent cookie = components.get("tok_" + loc.toString());
-    locations.remove("tok_" + loc.toString());
-    components.remove("tok_" + loc.toString());
+    cookies--;
+    JComponent cookie = components.get(name); 
+    System.out.println(cookie.toString() + "Test" + (cookie == null));
+    locations.remove(name);
+    components.remove(name); 
+
     return cookie;
   }
 }
