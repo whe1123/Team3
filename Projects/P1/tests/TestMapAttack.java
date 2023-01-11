@@ -1,4 +1,4 @@
-import java.io.*
+import java.io.*;
 import junit.framework.*;
 import java.awt.Color;
 
