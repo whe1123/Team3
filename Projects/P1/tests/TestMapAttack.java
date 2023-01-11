@@ -1,4 +1,6 @@
+import java.io.*
 import junit.framework.*;
+import java.awt.Color;
 
 public class TestMapAttack extends TestCase {
 
@@ -16,8 +18,8 @@ public class TestMapAttack extends TestCase {
 
       frame.startGame();
 
-      assertTrue(frame.attack("ghost"));
-      assertFalse(frame.attack("ghost2"));
+      assertTrue(frame.getMap().attack("ghost"));
+      assertFalse(frame.getMap().attack("ghost2"));
   }
 }
 
