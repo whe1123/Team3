@@ -92,12 +92,13 @@ public class Map {
     // update gameOver
     Location ghostLoc = locations.get(Name);
 
+    // create Ghost from Name
     Ghost ghost = new Ghost(Name, ghostLoc, this);
 
     if(ghost.is_pacman_in_range()){
-	ghost.attack();
-	gameOver = true;
-	return true;
+        ghost.attack();
+        gameOver = true;
+        return true;
     }
     
     return false;
