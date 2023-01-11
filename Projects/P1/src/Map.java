@@ -51,24 +51,71 @@ public class Map {
     return gameOver;
   }
 
+  /**
+   * This method takes a name, location, and Map.Type and puts the object
+   * specified by the name at the location specified.
+   * 
+   * If the method is able to succesfully move the object, it returns True.
+   * Otherwise, the method returns false.
+   * 
+   * The method requires the object specified by the name to already exist
+   * to return true.
+   * 
+   * Method written by adhetzer
+   */
   public boolean move(String name, Location loc, Type type) {
-    // update locations, components, and field
-    // use the setLocation method for the component to move it to the new location
-    return false;
+    // Check if the object to be moved exists in components. If not
+    // return false. Otherwise continue to move.
+    if (components.containsKey(name) && (type == Map.Type.PACMAN || type == Map.Type.GHOST)){
+      if (field.containsKey(loc)) {
+        HashSet<Type> tempTypeSet = field.get(loc);
+        tempTypeSet.add(type);
+        field.put(loc, tempTypeSet);
+      } else { 
+        // Returns false if location attempting to move to is not in field
+        return false;
+      }
+
+      // Update locations, and components
+      locations.put(name, loc);
+      components.put(name, components.get(name)); // Seems redundant?
+
+      // Update JComponent depending on type using setLocation(...)
+      // to move it to the new location. Returns true
+      components.get(name).setLocation(loc.x, loc.y);
+
+      return true;
+    } else {
+      // Returns false for trying to move objects with names
+      // that do not match existing names (should use add instead)
+      // OR for trying to move objects that are not Map.Type.GHOST
+      // or Map.Type.PACMAN 
+      return false;
+    }
   }
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    return null;
+    HashSet<Type> typeObj = field.get(loc);
+    return typeObj;
   }
 
   public boolean attack(String Name) {
     // update gameOver
+    Location ghostLoc = locations.get(Name);
+
+    if(map.getLoc(ghostLoc).is_pacman_in_range()){
+        map.getLoc(ghostLoc).attack();
+	gameOver = true;
+	return true;
+    }
+    
     return false;
   }
 
   public JComponent eatCookie(String name) {
     Location loc = locations.get(name);
+
     if (getLoc(loc) == null) {
       return null;
     }
@@ -83,6 +130,7 @@ public class Map {
     System.out.println(cookie.toString() + "Test" + (cookie == null));
     locations.remove(name);
     components.remove(name); 
+
     return cookie;
   }
 }

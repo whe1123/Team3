@@ -8,8 +8,10 @@ import java.awt.Color;
 
 public class TestMapEatCookie extends TestCase {
 
+  // Edited for compilation purposes
   public void testMapEatCookie() throws FileNotFoundException {
     // Create a Map object and set up the game state
+
 
     /*Location pacmanLoc = new Location(5, 5);
     map.add("PacMan", pacmanLoc, null, Map.Type.PACMAN);
@@ -36,7 +38,5 @@ map.add(loc_tmp, cookieLoc, new CookieComponent(cookieLoc.x, cookieLoc.y, 20), M
     // Test that PacMan can eat a cookie at its current location
     JComponent cookie2 = map.eatCookie(loc_tmp);
     assertNotNull(cookie2); */
-
-
   }
 }
