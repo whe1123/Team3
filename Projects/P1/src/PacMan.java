@@ -14,17 +14,6 @@ public class PacMan {
     this.myMap = map;
   }
 
-  /**  
-   * This method returns all the valid moves that PacMan can 
-   * make given his current position. 
-   * 
-   * It is valid for PacMan to move into a Cookie, Ghost, or Empty. 
-   * It is not valid for PacMan to move into a Wall.
-   * 
-   * Note: The logic of this method is similar to Ghosts.get_valid_moves()
-   * 
-   * Method by adhetzer
-  */ 
   public ArrayList<Location> get_valid_moves() {
     Location currentLoc = this.myLoc;
     ArrayList<Location> validMoves;
