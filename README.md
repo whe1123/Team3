@@ -32,6 +32,13 @@ This method checks to see if there are any ghosts within attack range of PacMan.
 - **Method Summary:** `() -> Bool`
 This method implements PacMan's movements. First, it finds a set of locations where PacMan can move by using get_valid_moves. Then, it randomly chooses one of those locations, implements the move, and returns true. Otherwise, the set of location is empty, and the method returns false because PacMan cannot move.
 - **Testing:** Create a new map. Create a Pacman at location (1, 3). Add the pacman to map at the same location. Use getLoc to check if Pacman is at (1, 3). Let it move. Use getLoc to check location (1, 3) to see whether Pacman is still there.
+
+##### consume():
+- **Author:** Syed Zaidi
+- **Method Summary:** `() -> JComponent`
+This method first checks if there is a cookie at PacMan's current location using the getLoc method of the Map class. If there is a cookie at PacMan's current location, the method calls the eatCookie method of the Map class to consume the cookie and returns the cookie component. If there is no cookie at PacMan's current location, the method returns null. The consume method of the PacMan class allows PacMan to consume a cookie if there is one at its current location. The method returns the cookie component if a cookie was consumed, null otherwise.
+- **Testing:** Creates a Map object and adds PacMan and a cookie to it at specific locations. It then creates a PacMan object and sets its myMap field to the Map object. The test calls the consume method of the PacMan object and verifies that it returns the expected values.
+
 #####
 #####
 #### 3.2 Ghost Class
@@ -54,6 +61,14 @@ This method checks to see if there PacMan is within attack range of a ghost. Pac
 - **Method Summary:** `() -> Bool`
 This method implements Ghost's movements. First, it finds a set of locations where Ghost can move by using get_valid_moves. Then, it randomly chooses one of those locations, implements the move, and returns true. Otherwise, the set of location is empty, and the method returns false because Ghost cannot move.
 - **Testing:** Create a new map. Create a ghost at location (1, 3). Add the ghost to map at the same location. Use getLoc to check if ghost is at (1, 3). Let it move. Use getLoc to check location (1, 3) to see whether ghost is still there.
+
+##### attack():
+- **Author:** Syed Zaidi
+- **Method Summary:** `() -> Bool`
+This method first checks if PacMan is within range using the is_pacman_in_range method. If PacMan is within range, the Ghost moves to PacMan's current location using the move method of the Map class, and returns true. If PacMan is not within range, the method returns false.
+- **Testing:**
+Creates a Map object and adds PacMan and Ghost characters to it at specific locations. It then creates a Ghost object and sets its myMap field to the Map object. The test calls the attack method of the Ghost object and verifies that it returns the expected values. This test ensures that the attack method correctly determines if PacMan is within range and attacks PacMan if it is, and that it returns the appropriate values. It also serves as an example of how the attack method can be used in a game.
+
 #####
 #####
 #### 3.3 Map Class
@@ -77,6 +92,14 @@ This method checks to see if the provided ghost is able to attack PacMan.
 - **Method Summary:** `(Location loc) -> HashSet<Type>`
 This method returns the type of object (Empty, Pacman, Cookie, Ghost, Wall) at a given location.
 - **Testing:** To test this method, create a map, and a Pacman at location (2, 4). Then use assertTrue to to check if getLoc returns a HashSet contains a PacMan at that location.
+
+##### eatCookie(String Name):
+- **Author:** Syed Zaidi
+- **Method Summary:**
+This method first gets PacMan's current location and checks if there is a cookie at that location using the getLoc method. If there is a cookie at PacMan's current location, the method removes the cookie from the game state, returns the cookie component, and updates the cookie count. If there is no cookie at PacMan's current location, the method returns null.
+- **Testing:** 
+Creates a Map object and adds PacMan and a cookie to it at specific locations. The test calls the eatCookie method of the Map object and verifies that it returns the expected values and updates the internal state of the Map object correctly. This test ensures that the eatCookie method correctly consumes a cookie at PacMan's current location, and that it returns the appropriate values and updates the game state correctly. It also
+
 #####
 #####
 
