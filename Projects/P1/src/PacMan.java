@@ -28,7 +28,7 @@ public class PacMan {
       for (int y = -1; y < 2; y++) {
         Location testLocation = currentLoc.shift(currentLoc.x + x, currentLoc.y + y);
 
-        // The only non-valid move for PacMan is going through a WALL
+        // The only non-valid move for PacMan is going through a WALL 
         if (!(this.myMap.getLoc(testLocation).contains(Map.Type.WALL))) {
           validMoves.add(testLocation);
         }
@@ -91,3 +91,4 @@ public class PacMan {
   return null;
   }
 }
+
