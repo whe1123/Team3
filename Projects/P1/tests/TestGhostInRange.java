@@ -23,3 +23,4 @@ public class TestGhostInRange extends TestCase {
       assertFalse(pacman2.is_ghost_in_range());
   }
 }
+
