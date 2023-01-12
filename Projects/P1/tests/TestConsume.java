@@ -8,26 +8,16 @@ import junit.framework.*;
 public class TestConsume extends TestCase {
 
   public void testConsume() throws FileNotFoundException {
-    // Create a Map object and set up the game state
-    Map map = new Map(10);
-    Location pacmanLoc = new Location(5, 5);
-    map.add("PacMan", pacmanLoc, null, Map.Type.PACMAN);
-    Location cookieLoc = new Location(5, 5);
-    map.add("tok_" + cookieLoc.toString(), cookieLoc, new JButton("Cookie"), Map.Type.COOKIE);
+    NoFrame frame = new NoFrame();
+    Map myMap = frame.getMap();
+    PacMan pacman = frame.addPacMan(new Location(5,5));
 
-    // Create a PacMan object and set its myMap field to the Map object
-    PacMan pacman = new PacMan("PacMan", pacmanLoc, map);
+    //Create a cookie at a specific location
+    Location cookieLocation = new Location(5,5);
+    CookieComponent tok = new CookieComponent(cookieLocation.x, cookieLocation.y, 20);
+    myMap.add("tok_x5_y5", cookieLocation, tok, Map.Type.COOKIE);
 
-    // Test that PacMan can consume a cookie at its current location
-    JComponent cookie = pacman.consume();
-    assertNotNull(cookie);
-
-    // Test that PacMan can't consume a cookie at a different location
-    pacmanLoc = new Location(0, 0);
-    pacman.myLoc = pacmanLoc;
-
-    JComponent cookie2 = pacman.consume();
-    assertNull(cookie2);
-
+    //Test that consuming a cookie returns the correct component
+    assertEquals(tok, pacman.consume());
   }
 }
