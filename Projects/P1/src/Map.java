@@ -2,6 +2,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
 
+//import com.sun.xml.internal.bind.v2.runtime.Location;
+
+
 public class Map {
 
   public enum Type {
@@ -52,77 +55,72 @@ public class Map {
   }
 
   public boolean move(String name, Location loc, Type type) {
-    // Check if the object to be moved exists in components. If not
-    // return false. Otherwise continue to move.
-    if (components.containsKey(name) && (type == Map.Type.PACMAN || type == Map.Type.GHOST)){
-      if (field.containsKey(loc)) {
-        HashSet<Type> tempTypeSet = field.get(loc);
-        tempTypeSet.add(type);
-        field.put(loc, tempTypeSet);
-      } else { 
-        // Returns false if location attempting to move to is not in field
-        return false;
-      }
-
-      // Update locations, and components
-      locations.put(name, loc);
-      components.put(name, components.get(name)); // Seems redundant?
-
-      // Update JComponent depending on type using setLocation(...)
-      // to move it to the new location. Returns true
-      components.get(name).setLocation(loc.x, loc.y);
-
-      return true;
-    } else {
-      // Returns false for trying to move objects with names
-      // that do not match existing names (should use add instead)
-      // OR for trying to move objects that are not Map.Type.GHOST
-      // or Map.Type.PACMAN 
-      return false;
-    }
+    // update locations, components, and field
+    // use the setLocation method for the component to move it to the new location
+	  if (type == Map.Type.PACMAN || type == Map.Type.GHOST)
+	  {
+		  field.get(locations.get(name)).remove(type);
+		  locations.put(name, loc);
+		  components.get(name).setLocation(loc.x, loc.y);
+		  
+		  if (field.get(loc) == null)
+		  {
+			  field.put(loc, new HashSet<Type>());
+		  }
+		  
+		  field.get(loc).add(type);
+		  
+		  return true;
+		  
+	  }
+	  else
+	  {
+		  return false;
+	  }
   }
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    HashSet<Type> typeObj = field.get(loc);
+	  HashSet<Type> typeObj = field.get(loc);
     return typeObj;
   }
 
   public boolean attack(String Name) {
     // update gameOver
-    Location ghostLoc = locations.get(Name);
-
-    // create Ghost from Name
-    Ghost ghost = new Ghost(Name, ghostLoc, this);
-
-    if(ghost.is_pacman_in_range()){
-        ghost.attack();
-        gameOver = true;
-        return true;
-    }
+	  Location ghost = locations.get(Name);
+	  
+	  if(field.get(ghost).contains(Map.Type.PACMAN))
+	  {
+		  gameOver = true;
+		  return true;
+		  
+	  }
+	  
+	  return false;
     
-    return false;
   }
 
   public JComponent eatCookie(String name) {
-    Location loc = locations.get(name);
-
-    if (getLoc(loc) == null) {
-      return null;
-    }
-    HashSet<Type> types = getLoc(loc);
-    types.add(Type.EMPTY);
-    types.remove(Type.COOKIE);
-
-    //Returns cookie compnenet with updated count
-    field.put(loc, types);
-    cookies--;
-    JComponent cookie = components.get(name); 
-    System.out.println(cookie.toString() + "Test" + (cookie == null));
-    locations.remove(name);
-    components.remove(name); 
-
-    return cookie;
+    // update locations, components, field, and cookies
+    // the id for a cookie at (10, 1) is tok_x10_y1
+	  Location local = locations.get(name);
+	  String strCookie = "tok_x" + local.x + "_y" + local.y;
+	  JComponent compo = components.get(strCookie);
+	  
+	  if (locations.containsKey(strCookie))
+	  {
+		  locations.remove(strCookie);  
+		  
+	 
+		  if (field.get(local).isEmpty())
+		  {
+			  field.get(local).add(Map.Type.EMPTY);
+			  field.get(local).remove(Map.Type.COOKIE);
+			  
+		  }
+		  cookies += 1;
+		  }
+	  return compo;
+	  
   }
 }
-
