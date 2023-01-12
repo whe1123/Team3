@@ -14,7 +14,7 @@ jobs:
         working-directory: ./Projects/P1
         run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
   
-  TestPacManMove.java:
+  TestPacManMove:
     runs-on: ubuntu-latest
     container: openjdk
 
@@ -25,7 +25,7 @@ jobs:
         working-directory: ./Projects/P1
         run: java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove
   
-  TestGhostMove.java:
+  TestGhostMove:
     runs-on: ubuntu-latest
     container: openjdk
 
@@ -36,7 +36,7 @@ jobs:
         working-directory: ./Projects/P1
         run: java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostMove
   
-  TestMapGetLoc.java:
+  TestMapGetLoc:
     runs-on: ubuntu-latest
     container: openjdk
 
