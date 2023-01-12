@@ -1,0 +1,15 @@
+name: Team3 Testing
+
+on: [push, workflow_dispatch]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Compile Java Code and Test
+        working-directory: ./Projects/P1
+        run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
