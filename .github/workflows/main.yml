@@ -13,3 +13,36 @@ jobs:
       - name: Compile Java Code and Test
         working-directory: ./Projects/P1
         run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+  
+  TestPacManMove.java:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Testing TestPacManMove.java
+        working-directory: ./Projects/P1
+        run: java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove
+  
+  TestGhostMove.java:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Testing TestGhostMove.java
+        working-directory: ./Projects/P1
+        run: java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostMove
+  
+  TestMapGetLoc.java:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Testing TestMapGetLoc.java
+        working-directory: ./Projects/P1
+        run: java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapGetLoc
