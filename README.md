@@ -6,10 +6,7 @@
 
 <img width="591" alt="Screenshot 2023-01-10 at 10 04 45 PM" src="https://user-images.githubusercontent.com/58226227/211710459-ed59116b-4168-4d44-82a0-621b61349452.png">
 
-
-
-https://user-images.githubusercontent.com/58226227/211956979-2b7148a8-6a30-4fb2-a038-e0b78e827f83.mov
-
+https://user-images.githubusercontent.com/58226227/211957215-ffeab25e-fd5f-4524-a89d-794df77883e6.mov
 
 
 ### 2. How to run the code from the command line
