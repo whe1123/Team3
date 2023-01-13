@@ -91,7 +91,6 @@ public class Map {
 	  
 	  if(field.get(ghost).contains(Map.Type.PACMAN))
 	  {
-		  gameOver = true;
 		  return true;
 		  
 	  }

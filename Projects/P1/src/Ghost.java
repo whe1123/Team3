@@ -79,16 +79,15 @@ public class Ghost {
 	  int tempY = myLoc.y;
 	  
 	  // Scrolls through all the X values
-	  for(int i = tempX - 1; i <= tempX + 1; i++)
+	  for(int i = tempX - 1; i < tempX + 1; i++)
 	  {
 		  // Scrolls through all the Y values
-		  for(int j = tempY - 1; j <= tempY + 1; j++)
+		  for(int j = tempY - 1; j < tempY + 1; i++)
 		  {
 			  Location tempLoc = new Location(i, j);
-			  // Checks if the current location is a ghost
+			  // Checks if the current location is a pacman
 
-			  if((myMap.getLoc(tempLoc) != null) 
-					  && ((myMap.getLoc(tempLoc).contains(Map.Type.PACMAN))
+			  if(((myMap.getLoc(tempLoc).contains(Map.Type.PACMAN))
 							  || (myMap.getLoc(myLoc)).contains(Map.Type.PACMAN)))
 			  {
 				  return true;
