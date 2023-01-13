@@ -81,7 +81,7 @@ public class Map {
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-	  HashSet<Type> typeObj = field.get(loc);
+	  HashSet<Type> typeObj = wallSet;
     return typeObj;
   }
 
