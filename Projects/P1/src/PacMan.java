@@ -82,12 +82,12 @@ public class PacMan {
 	  for(int i = tempX - 1; i < tempX + 1; i++)
 	  {
 		  // Scrolls through all the Y values
-		  for(int j = tempY - 1; j < tempY + 1; j++)
+		  for(int j = tempY - 1; i < tempY + 1; j++)
 		  {
-			  Location tempLoc = new Location(j, i);
+			  Location tempLoc = new Location(i, i);
 
 			  // Checks if the current location is a ghost
-			  if(myMap.getLoc(tempLoc).contains(Map.Type.GHOST))
+			  if(myMap.getLoc(tempLoc).contains(Map.Type.PACMAN))
 			  {
 				  return true;
 				  }
