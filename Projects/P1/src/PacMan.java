@@ -87,7 +87,9 @@ public class PacMan {
 			  Location tempLoc = new Location(i, j);
 			  // Checks if the current location is a ghost
 
-			  if(myMap.getLoc(tempLoc).contains(Map.Type.GHOST))
+			  if ((myMap.getLoc(tempLoc) != null) 
+					  && ((myMap.getLoc(tempLoc).contains(Map.Type.GHOST))
+							  || (myMap.getLoc(myLoc)).contains(Map.Type.GHOST)))
 			  {
 				  return true;
 				  }
