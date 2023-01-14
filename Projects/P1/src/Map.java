@@ -100,26 +100,23 @@ public class Map {
   }
 
   public JComponent eatCookie(String name) {
-    // update locations, components, field, and cookies
-    // the id for a cookie at (10, 1) is tok_x10_y1
-	  Location local = locations.get(name);
-	  String strCookie = "tok_x" + local.x + "_y" + local.y;
-	  JComponent compo = components.get(strCookie);
-	  
-	  if (locations.containsKey(strCookie))
-	  {
-		  locations.remove(strCookie);  
-		  
-	 
-		  if (field.get(local).isEmpty())
-		  {
-			  field.get(local).add(Map.Type.EMPTY);
-			  field.get(local).remove(Map.Type.COOKIE);
-			  
-		  }
-		  cookies += 1;
-		  }
-	  return compo;
+    Location local = locations.get(name);
+    String strCookie = "tok_x" + local.x + "_y" + local.y;
+    JComponent compo = components.get(strCookie);
+
+    if (locations.containsKey(strCookie)) {
+        locations.remove(strCookie);  
+
+        if (field.get(local).isEmpty()) {
+            field.get(local).add(Map.Type.EMPTY);
+            field.get(local).remove(Map.Type.COOKIE);
+        }
+
+        if(local.x != 1 || local.y != 1) {
+            cookies += 1;
+        }
+    }
+    return compo;
 	  
   }
 }

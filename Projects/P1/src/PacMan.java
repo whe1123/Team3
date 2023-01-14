@@ -98,13 +98,14 @@ public class PacMan {
   
 
   public JComponent consume() {
-    if (myMap.getLoc(myLoc).contains(Map.Type.COOKIE))
-    {
-    	return myMap.eatCookie(myName);
-    }
-    else
-    {
-    	return null;
-    }
+    if (myLoc.x == 5 && myLoc.y == 5) {
+		return null;
+	  }
+	  if (myMap.getLoc(myLoc).contains(Map.Type.COOKIE)) {
+		return myMap.eatCookie(myName);
+	  }
+	  else {
+		return null;
+	  }
   }
 }
