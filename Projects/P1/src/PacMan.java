@@ -76,18 +76,18 @@ public class PacMan {
 
   public boolean is_ghost_in_range() {
 	  int tempX = myLoc.x;
-	  int tempY = myLoc.y;
+	  int tempY = myLoc.x;
 	  
 	  // Scrolls through all the X values
 	  for(int i = tempX - 1; i < tempX + 1; i++)
 	  {
 		  // Scrolls through all the Y values
-		  for(int j = tempY - 1; i < tempY + 1; j++)
+		  for(int j = tempY - 1; j < tempY + 1; j++)
 		  {
 			  Location tempLoc = new Location(i, i);
 
 			  if ((myMap.getLoc(tempLoc) != null) 
-					  && ((myMap.getLoc(tempLoc).contains(Map.Type.GHOST))
+					  && ((myMap.getLoc(tempLoc).contains(Map.Type.PACMAN))
 							  || (myMap.getLoc(myLoc)).contains(Map.Type.GHOST)))
 			  {
 				  return true;
