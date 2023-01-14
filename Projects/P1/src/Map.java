@@ -89,9 +89,8 @@ public class Map {
     // update gameOver
 	  Location ghost = locations.get(Name);
 	  
-	  if(field.get(ghost).contains(Map.Type.PACMAN))
+	  if(field.get(ghost).contains(Map.Type.EMPTY))
 	  {
-		  gameOver = true;
 		  return true;
 		  
 	  }
