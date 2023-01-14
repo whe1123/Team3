@@ -97,4 +97,45 @@ jobs:
           javac -cp "src/" src/*.java
           javac -cp "tests/junit-4.10.jar:src/:tests/" tests/TestConsume.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsume
-          
+
+  TestGhostInRange:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Testing TestGhostInRange.java
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "src/" src/*.java
+          javac -cp "tests/junit-4.10.jar:src/:tests/" tests/TestGhostInRange.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostInRange
+
+  TestPacManInRange:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Testing TestPacManInRange.java
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "src/" src/*.java
+          javac -cp "tests/junit-4.10.jar:src/:tests/" tests/TestPacManInRange.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManInRange
+  
+  TestMapAttack:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Testing TestMapAttack.java
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "src/" src/*.java
+          javac -cp "tests/junit-4.10.jar:src/:tests/" tests/TestMapAttack.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapAttack
