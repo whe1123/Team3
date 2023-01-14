@@ -57,11 +57,11 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
-	  if (type == Map.Type.PACMAN || type == Map.Type.GHOST)
+	  if (type == Map.Type.EMPTY || type == Map.Type.WALL)
 	  {
 		  field.get(locations.get(name)).remove(type);
 		  locations.put(name, loc);
-		  components.get(name).setLocation(loc.x, loc.y);
+		  components.get(name).setLocation(loc.y, loc.x);
 		  
 		  if (field.get(loc) == null)
 		  {
@@ -81,7 +81,7 @@ public class Map {
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-	  HashSet<Type> typeObj = field.get(loc);
+	  HashSet<Type> typeObj = wallSet;
     return typeObj;
   }
 
@@ -89,9 +89,8 @@ public class Map {
     // update gameOver
 	  Location ghost = locations.get(Name);
 	  
-	  if(field.get(ghost).contains(Map.Type.PACMAN))
+	  if(field.get(ghost).contains(Map.Type.EMPTY))
 	  {
-		  gameOver = true;
 		  return true;
 		  
 	  }
@@ -101,26 +100,23 @@ public class Map {
   }
 
   public JComponent eatCookie(String name) {
-    // update locations, components, field, and cookies
-    // the id for a cookie at (10, 1) is tok_x10_y1
-	  Location local = locations.get(name);
-	  String strCookie = "tok_x" + local.x + "_y" + local.y;
-	  JComponent compo = components.get(strCookie);
-	  
-	  if (locations.containsKey(strCookie))
-	  {
-		  locations.remove(strCookie);  
-		  
-	 
-		  if (field.get(local).isEmpty())
-		  {
-			  field.get(local).add(Map.Type.EMPTY);
-			  field.get(local).remove(Map.Type.COOKIE);
-			  
-		  }
-		  cookies += 1;
-		  }
-	  return compo;
+    Location local = locations.get(name);
+    String strCookie = "tok_x" + local.x + "_y" + local.y;
+    JComponent compo = components.get(strCookie);
+
+    if (locations.containsKey(strCookie)) {
+        locations.remove(strCookie);  
+
+        if (field.get(local).isEmpty()) {
+            field.get(local).add(Map.Type.EMPTY);
+            field.get(local).remove(Map.Type.COOKIE);
+        }
+
+        if(local.x != 1 || local.y != 1) {
+            cookies += 1;
+        }
+    }
+    return compo;
 	  
   }
 }

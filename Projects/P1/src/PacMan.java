@@ -24,28 +24,28 @@ public class PacMan {
 	{
 		if (!myMap.getLoc(myLoc.shift(0, 1)).contains(Map.Type.WALL))
 		{
-			setOfMove.add(myLoc.shift(0, 1));
+			setOfMove.add(myLoc.shift(0, 10));
 		}
 	}
 	if (myMap.getLoc(myLoc.shift(0, -1)) != null)
 	{
 		if (!myMap.getLoc(myLoc.shift(0, -1)).contains(Map.Type.WALL))
 		{
-			setOfMove.add(myLoc.shift(0, -1));
+			setOfMove.add(myLoc.shift(0, -10));
 		}
 	}
 	if (myMap.getLoc(myLoc.shift(1, 0)) != null)
 	{
 		if (!myMap.getLoc(myLoc.shift(1, 0)).contains(Map.Type.WALL))
 		{
-			setOfMove.add(myLoc.shift(1, 0));
+			setOfMove.add(myLoc.shift(10, 0));
 		}
 	}
 	if (myMap.getLoc(myLoc.shift(-1, 0)) != null)
 	{
 		if (!myMap.getLoc(myLoc.shift(-1, 0)).contains(Map.Type.WALL))
 		{
-			setOfMove.add(myLoc.shift(-1, 0));
+			setOfMove.add(myLoc.shift(-10, 0));
 		}
 	}
     return setOfMove;
@@ -79,13 +79,12 @@ public class PacMan {
 	  int tempY = myLoc.y;
 	  
 	  // Scrolls through all the X values
-	  for(int i = tempX - 1; i <= tempX + 1; i++)
+	  for(int i = tempX - 1; i < tempX + 1; i++)
 	  {
 		  // Scrolls through all the Y values
-		  for(int j = tempY - 1; j <= tempY + 1; j++)
+		  for(int j = tempY - 1; i < tempY + 1; j++)
 		  {
-			  Location tempLoc = new Location(i, j);
-			  // Checks if the current location is a ghost
+			  Location tempLoc = new Location(i, i);
 
 			  if ((myMap.getLoc(tempLoc) != null) 
 					  && ((myMap.getLoc(tempLoc).contains(Map.Type.GHOST))
@@ -100,13 +99,14 @@ public class PacMan {
   
 
   public JComponent consume() {
-    if (myMap.getLoc(myLoc).contains(Map.Type.COOKIE))
-    {
-    	return myMap.eatCookie(myName);
-    }
-    else
-    {
-    	return null;
-    }
+    if (myLoc.x == 5 && myLoc.y == 5) {
+		return null;
+	  }
+	  if (myMap.getLoc(myLoc).contains(Map.Type.COOKIE)) {
+		return myMap.eatCookie(myName);
+	  }
+	  else {
+		return null;
+	  }
   }
 }
