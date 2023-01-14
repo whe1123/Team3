@@ -96,7 +96,7 @@ jobs:
         run: |
           javac -cp "src/" src/*.java
           javac -cp "tests/junit-4.10.jar:src/:tests/" tests/TestConsume.java
-          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsum
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsume
 
   TestGhostInRange:
     runs-on: ubuntu-latest
