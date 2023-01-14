@@ -111,8 +111,8 @@ jobs:
           javac -cp "src/" src/*.java
           javac -cp "tests/junit-4.10.jar:src/:tests/" tests/TestGhostInRange.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostInRange
-          
- TestPacManInRange:          
+
+  TestPacManInRange:
     runs-on: ubuntu-latest
     container: openjdk
 
@@ -126,7 +126,7 @@ jobs:
           javac -cp "tests/junit-4.10.jar:src/:tests/" tests/TestPacManInRange.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManInRange
 
-  TestMapAttack:  
+  TestMapAttack:
     runs-on: ubuntu-latest
     container: openjdk
 
@@ -140,7 +140,7 @@ jobs:
           javac -cp "tests/junit-4.10.jar:src/:tests/" tests/TestMapAttack.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapAttack
 
-  TestMapMove:        
+  TestMapMove:
     runs-on: ubuntu-latest
     container: openjdk
 
