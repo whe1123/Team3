@@ -24,28 +24,28 @@ public class PacMan {
 	{
 		if (!myMap.getLoc(myLoc.shift(0, 1)).contains(Map.Type.WALL))
 		{
-			setOfMove.add(myLoc.shift(0, 1));
+			setOfMove.add(myLoc.shift(0, 10));
 		}
 	}
 	if (myMap.getLoc(myLoc.shift(0, -1)) != null)
 	{
 		if (!myMap.getLoc(myLoc.shift(0, -1)).contains(Map.Type.WALL))
 		{
-			setOfMove.add(myLoc.shift(0, -1));
+			setOfMove.add(myLoc.shift(0, -10));
 		}
 	}
 	if (myMap.getLoc(myLoc.shift(1, 0)) != null)
 	{
 		if (!myMap.getLoc(myLoc.shift(1, 0)).contains(Map.Type.WALL))
 		{
-			setOfMove.add(myLoc.shift(1, 0));
+			setOfMove.add(myLoc.shift(10, 0));
 		}
 	}
 	if (myMap.getLoc(myLoc.shift(-1, 0)) != null)
 	{
 		if (!myMap.getLoc(myLoc.shift(-1, 0)).contains(Map.Type.WALL))
 		{
-			setOfMove.add(myLoc.shift(-1, 0));
+			setOfMove.add(myLoc.shift(-10, 0));
 		}
 	}
     return setOfMove;
