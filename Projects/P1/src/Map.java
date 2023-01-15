@@ -112,9 +112,7 @@ public class Map {
             field.get(local).remove(Map.Type.COOKIE);
         }
 
-        if(local.x != 1 || local.y != 1) {
-            cookies += 1;
-        }
+ 	cookies += 1;
     }
     return compo;
 	  
