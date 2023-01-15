@@ -17,7 +17,7 @@ public class Ghost {
   public ArrayList<Location> get_valid_moves() {
 	  ArrayList<Location> setOfMove = new ArrayList<Location>();
 		
-		if (myMap.getLoc(myLoc.shift(0, 1)) == null)
+		if (myMap.getLoc(myLoc.shift(0, 1)) != null)
 		{
 			if (!myMap.getLoc(myLoc.shift(0, 1)).contains(Map.Type.WALL))
 			{
@@ -25,7 +25,7 @@ public class Ghost {
 			}
 		}
 		
-		if (myMap.getLoc(myLoc.shift(0, -1)) == null)
+		if (myMap.getLoc(myLoc.shift(0, -1)) != null)
 		{
 			if (!myMap.getLoc(myLoc.shift(0, -1)).contains(Map.Type.WALL))
 			{
@@ -33,7 +33,7 @@ public class Ghost {
 			}
 		}
 		
-		if (myMap.getLoc(myLoc.shift(1, 0)) == null)
+		if (myMap.getLoc(myLoc.shift(1, 0)) != null)
 		{
 			if (!myMap.getLoc(myLoc.shift(1, 0)).contains(Map.Type.WALL))
 			{
@@ -41,7 +41,7 @@ public class Ghost {
 			}
 		}
 		
-		if (myMap.getLoc(myLoc.shift(-1, 0)) == null)
+		if (myMap.getLoc(myLoc.shift(-1, 0)) != null)
 		{
 			if (!myMap.getLoc(myLoc.shift(-1, 0)).contains(Map.Type.WALL))
 			{
