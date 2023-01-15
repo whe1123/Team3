@@ -100,9 +100,6 @@ public class Ghost {
 
   
   public boolean attack() {
-    if (myLoc.x == 4 && myLoc.y == 5) {
-		return false;
-	  }
 	  if (is_pacman_in_range()) {
 		  myMap.attack(myName);
 		  return true;
