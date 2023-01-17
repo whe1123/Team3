@@ -67,6 +67,7 @@ public class PacMan {
     	Location des = smove.get(getRanNum); 
     	
     	//Implement moving
+    	myMap.getLoc(myLoc).remove(Map.Type.PACMAN);
     	myLoc = des;
     	myMap.move(myName, des, Map.Type.PACMAN);
     	
