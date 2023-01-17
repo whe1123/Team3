@@ -86,7 +86,7 @@ public class Map {
 
   public boolean attack(String Name) {
     // update gameOver
-	  Location ghost = locations.get(Name);
+	  Location ghostLoc = locations.get(Name);
 
     Ghost ghost = new Ghost(Name, ghostLoc, this);
 
