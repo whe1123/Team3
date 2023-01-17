@@ -67,6 +67,7 @@ public class Ghost {
 	    	Location des = smove.get(getRanNum); 
 	    	
 	    	//Implement moving
+	    	myMap.getLoc(myLoc).remove(Map.Type.GHOST);
 	    	myLoc = des;
 	    	myMap.move(myName, des, Map.Type.GHOST);
 	    	
