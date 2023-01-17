@@ -87,9 +87,13 @@ public class Map {
   public boolean attack(String Name) {
     // update gameOver
 	  Location ghost = locations.get(Name);
-	  
-	  if(field.get(ghost).contains(Map.Type.EMPTY))
+
+    Ghost ghost = new Ghost(Name, ghostLoc, this);
+
+	  if(ghost.is_pacman_in_range())
 	  {
+      ghost.attack();
+      gameOver = true;
 		  return true;
 		  
 	  }
