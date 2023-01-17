@@ -57,7 +57,7 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
-	  if (type == Map.Type.EMPTY || type == Map.Type.WALL)
+	  if (type != Map.Type.EMPTY && type != Map.Type.WALL)
 	  {
 		  field.get(locations.get(name)).remove(type);
 		  locations.put(name, loc);
