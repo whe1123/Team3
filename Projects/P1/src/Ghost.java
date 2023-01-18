@@ -17,7 +17,7 @@ public class Ghost {
   public ArrayList<Location> get_valid_moves() {
 	  ArrayList<Location> setOfMove = new ArrayList<Location>();
 		
-		if (myMap.getLoc(myLoc.shift(0, 1)) == null)
+		if (myMap.getLoc(myLoc.shift(0, 1)) != null)
 		{
 			if (!myMap.getLoc(myLoc.shift(0, 1)).contains(Map.Type.WALL))
 			{
@@ -25,7 +25,7 @@ public class Ghost {
 			}
 		}
 		
-		if (myMap.getLoc(myLoc.shift(0, -1)) == null)
+		if (myMap.getLoc(myLoc.shift(0, -1)) != null)
 		{
 			if (!myMap.getLoc(myLoc.shift(0, -1)).contains(Map.Type.WALL))
 			{
@@ -33,7 +33,7 @@ public class Ghost {
 			}
 		}
 		
-		if (myMap.getLoc(myLoc.shift(1, 0)) == null)
+		if (myMap.getLoc(myLoc.shift(1, 0)) != null)
 		{
 			if (!myMap.getLoc(myLoc.shift(1, 0)).contains(Map.Type.WALL))
 			{
@@ -41,7 +41,7 @@ public class Ghost {
 			}
 		}
 		
-		if (myMap.getLoc(myLoc.shift(-1, 0)) == null)
+		if (myMap.getLoc(myLoc.shift(-1, 0)) != null)
 		{
 			if (!myMap.getLoc(myLoc.shift(-1, 0)).contains(Map.Type.WALL))
 			{
@@ -67,6 +67,7 @@ public class Ghost {
 	    	Location des = smove.get(getRanNum); 
 	    	
 	    	//Implement moving
+	    	myMap.getLoc(myLoc).remove(Map.Type.GHOST);
 	    	myLoc = des;
 	    	myMap.move(myName, des, Map.Type.GHOST);
 	    	
@@ -77,32 +78,27 @@ public class Ghost {
   public boolean is_pacman_in_range() {
 	  int tempX = myLoc.x;
 	  int tempY = myLoc.y;
-	  
-	  // Scrolls through all the X values
-	  for(int i = tempX - 1; i < tempX + 1; i++)
-	  {
-		  // Scrolls through all the Y values
-		  for(int j = tempY - 1; j < tempY + 1; j++)
-		  {
-			  Location tempLoc = new Location(j, j);
-			  // Checks if the current location is a pacman
 
-			  if(((myMap.getLoc(tempLoc).contains(Map.Type.GHOST))
-							  || (myMap.getLoc(myLoc)).contains(Map.Type.GHOST)))
-			  {
-				  return true;
-				  }
-			  }
-		  }
-	  return false;
+	  // Scrolls through all the X values
+	  for(int i = tempX - 1; i <= tempX + 1; i++){
+		
+		//Scrolls through all the Y values
+		for(int j = tempY - 1; j <= tempY + 1; j++){
+        	Location tempLoc = new Location(i, j);
+
+        // Checks if the current location is a pacman
+        if(myMap.getLoc(tempLoc).contains(Map.Type.PACMAN)){
+            return true;
+        }
+    }
+    }
+
+    return false;
   }
 
 
   
   public boolean attack() {
-    if (myLoc.x == 4 && myLoc.y == 5) {
-		return false;
-	  }
 	  if (is_pacman_in_range()) {
 		  myMap.attack(myName);
 		  return true;

@@ -57,7 +57,7 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
-	  if (type == Map.Type.EMPTY || type == Map.Type.WALL)
+	  if (type != Map.Type.EMPTY && type != Map.Type.WALL)
 	  {
 		  field.get(locations.get(name)).remove(type);
 		  locations.put(name, loc);
@@ -81,21 +81,20 @@ public class Map {
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-	  HashSet<Type> typeObj = wallSet;
-    return typeObj;
+    return this.field.get(loc);
   }
 
   public boolean attack(String Name) {
     // update gameOver
-	  Location ghost = locations.get(Name);
-	  
-	  if(field.get(ghost).contains(Map.Type.EMPTY))
-	  {
-		  return true;
-		  
-	  }
-	  
-	  return false;
+    Location ghost = locations.get(Name);
+    if(field.get(ghost).contains(Map.Type.PACMAN))
+    {
+        gameOver = true;
+        return true;
+
+    }
+
+    return false;
     
   }
 
@@ -112,9 +111,7 @@ public class Map {
             field.get(local).remove(Map.Type.COOKIE);
         }
 
-        if(local.x != 1 || local.y != 1) {
-            cookies += 1;
-        }
+ 	cookies += 1;
     }
     return compo;
 	  
