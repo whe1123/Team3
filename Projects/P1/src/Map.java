@@ -86,16 +86,14 @@ public class Map {
 
   public boolean attack(String Name) {
     // update gameOver
-    Location ghostLoc = locations.get(Name);
+    Location ghost = locations.get(Name);
+    if(field.get(ghost).contains(Map.Type.PACMAN))
+    {
+        gameOver = true;
+        return true;
 
-    Ghost ghost = new Ghost(Name, ghostLoc, this);
-
-    if(ghost.is_pacman_in_range()){
-    ghost.attack();
-    gameOver = true;
-    return true;
     }
-    
+
     return false;
     
   }
