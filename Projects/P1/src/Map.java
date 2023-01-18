@@ -86,15 +86,15 @@ public class Map {
 
   public boolean attack(String Name) {
     // update gameOver
-	  Location ghost = locations.get(Name);
-	  
-	  if(field.get(ghost).contains(Map.Type.EMPTY))
-	  {
-		  return true;
-		  
-	  }
-	  
-	  return false;
+    Location ghost = locations.get(Name);
+    if(field.get(ghost).contains(Map.Type.PACMAN))
+    {
+        gameOver = true;
+        return true;
+
+    }
+
+    return false;
     
   }
 
